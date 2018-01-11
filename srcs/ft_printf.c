@@ -41,6 +41,11 @@ int		ft_printf(char *format, ...)
 				ft_pick_oct_type(specs, ptr);
 				format++;
 			}
+			if (*format == '%')
+			{
+				ft_putchar('%');
+				format++;
+			}
 			specs = ft_peace_maker();
 		}
 		if (*format != '%')
