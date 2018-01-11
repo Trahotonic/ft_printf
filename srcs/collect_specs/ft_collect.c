@@ -16,7 +16,8 @@ char	*ft_collect(char *format, t_specs *specs)
 {
 	while (*format != '\0' && *format != 'd' && *format != 'c'
 		&& *format != 's' && *format != 'x' && *format != 'X'
-		&& *format != 'o' && *format != 'i' && *format != '%')
+		&& *format != 'o' && *format != 'i' && *format != '%'
+		&& *format != 'u')
 	{
 		if (ft_check_invalid(format))
 			return (format);

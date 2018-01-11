@@ -46,6 +46,16 @@ int		ft_printf(char *format, ...)
 				ft_putchar('%');
 				format++;
 			}
+			if (*format == '@')
+			{
+				ft_putchar('@');
+				format++;
+			}
+			if (*format == 'u')
+			{
+				ft_pick_uns_type(specs, ptr);
+				format++;
+			}
 			specs = ft_peace_maker();
 		}
 		if (*format != '%')

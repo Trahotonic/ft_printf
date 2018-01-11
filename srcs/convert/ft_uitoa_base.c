@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_uitoa_base.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:24:07 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:24:08 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/11 17:53:28 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/11 17:53:28 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../prlib.h"
 
-char	*ft_itoa_base(long long value, int base)
+char	*ft_uitoa_base(unsigned long long value, int base)
 {
 	char	*array;
 	char	tmp[60];

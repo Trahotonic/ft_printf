@@ -45,6 +45,7 @@ char			*ft_allow(char *str);
 size_t			ft_strlen(char *str);
 char			*ft_go_zero(void);
 char			*ft_itoa_base(long long value, int base);
+char			*ft_uitoa_base(unsigned long long value, int base);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 int				ft_smoker_atoi(const char *nptr);
@@ -68,7 +69,11 @@ void			ft_equal_dis_oct(t_specs *specs, unsigned long long n);
 void			ft_place_oct_left(unsigned long long n, t_specs specs);
 void			ft_place_oct_right(unsigned long long n, t_specs specs);
 void			ft_print_oct(unsigned long long n, t_specs specs);
-
+void			ft_equal_dis_uns(t_specs *specs, unsigned long long n);
+void			ft_pick_uns_type(t_specs specs, va_list ptr);
+void			ft_place_uns_left(unsigned long long n, t_specs specs);
+void			ft_place_uns_right(unsigned long long n, t_specs specs);
+void			ft_print_uns(unsigned long long n, t_specs specs);
 int				ft_printf(char *format, ...);
 
 #endif

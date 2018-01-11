@@ -34,7 +34,7 @@ void	ft_place_int_left(long long n, t_specs specs)
 	}
 	if (n < 0)
 		n = -n;
-	ft_putstr(ft_itoa(n));
+	ft_putstr(ft_itoa_base(n, 10));
 	count = 0;
 	while (count < specs.width - specs.space)
 	{
