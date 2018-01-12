@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_place_chr_left.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 18:42:17 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 18:42:18 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./srcs/prlib.h"
+#include "../prlib.h"
 
-int		main()
+void	ft_place_chr_left(char c, t_specs specs)
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
-	return (0);
+	int		count;
+
+	count = 0;
+	ft_putchar(c);
+	while (count < specs.width)
+	{
+		ft_putchar(' ');
+		count++;
+	}
 }

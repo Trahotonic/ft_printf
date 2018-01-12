@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstrn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 15:48:20 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 15:48:21 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./srcs/prlib.h"
+#include "../prlib.h"
 
-int		main()
+void	ft_putstrn(char const *s, size_t n)
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
-	return (0);
+	size_t i;
+
+	i = 0;
+	while (s[i] != '\0' && i < n)
+		ft_putchar(s[i++]);
 }

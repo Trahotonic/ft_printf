@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_equal_dis_str.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 14:31:50 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 14:31:50 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./srcs/prlib.h"
+#include "../prlib.h"
 
-int		main()
+void	ft_equal_dis_str(t_specs *specs, char *str)
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
-	return (0);
+	if (specs->leftside == 1)
+		specs->zero = 0;
+	if (specs->accuracy > (int)ft_strlen(str))
+		specs->accuracy = ft_strlen(str);
+	if (specs->acc_flag == 1)
+		specs->width -= specs->accuracy;
+	else
+		specs->width -= ft_strlen(str);
 }

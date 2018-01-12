@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pick_int_type.c                                 :+:      :+:    :+:   */
+/*   ft_pick_str_type.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:28:54 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:28:54 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 14:32:48 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 14:32:49 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,26 +49,8 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-void	ft_pick_int_type(t_specs specs, va_list ptr, char d)
+void	ft_pick_str_type(t_specs specs, va_list ptr)
 {
-	if (d == 'D')
-	{
-		ft_print_int(va_arg(ptr, long long), specs);
-		return ;
-	}
 	ft_king_of_the_hill(&specs);
-	if (specs.l == 1)
-		ft_print_int(va_arg(ptr, long), specs);
-	else if (specs.ll == 1)
-		ft_print_int(va_arg(ptr, long long), specs);
-	else if (specs.h == 1)
-		ft_print_int(va_arg(ptr, int), specs);
-	else if (specs.hh == 1)
-		ft_print_int(va_arg(ptr, int), specs);
-	else if (specs.j == 1)
-		ft_print_int(va_arg(ptr, intmax_t), specs);
-	else if (specs.z == 1)
-		ft_print_int(va_arg(ptr, size_t), specs);
-	else
-		ft_print_int(va_arg(ptr, int), specs);
+	ft_print_str(va_arg(ptr, char*), specs);
 }

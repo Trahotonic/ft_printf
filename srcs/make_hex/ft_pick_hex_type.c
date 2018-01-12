@@ -67,4 +67,3 @@ void	ft_pick_hex_type(t_specs specs, va_list ptr, char x)
 	else
 		ft_print_hex(va_arg(ptr, unsigned int), specs, x);
 }
-

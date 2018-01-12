@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_pick_chr_type.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 18:42:04 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 18:42:04 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./srcs/prlib.h"
+#include "../prlib.h"
 
-int		main()
+void	ft_pick_chr_type(t_specs specs, va_list ptr)
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
-	return (0);
+	ft_print_chr(va_arg(ptr, int), specs);
 }

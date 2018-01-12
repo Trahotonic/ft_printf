@@ -26,9 +26,9 @@ int		ft_printf(char *format, ...)
 		if (*format == '%')
 		{
 			format = ft_collect(format + 1, &specs);
-			if (*format == 'd' || *format == 'i')
+			if (*format == 'd' || *format == 'D' || *format == 'i')
 			{
-				ft_pick_int_type(specs, ptr);
+				ft_pick_int_type(specs, ptr, *format);
 				format++;
 			}
 			if (*format == 'x' || *format == 'X')
@@ -36,9 +36,9 @@ int		ft_printf(char *format, ...)
 				ft_pick_hex_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == 'o')
+			if (*format == 'o' || *format == 'O')
 			{
-				ft_pick_oct_type(specs, ptr);
+				ft_pick_oct_type(specs, ptr, *format);
 				format++;
 			}
 			if (*format == '%')
@@ -51,9 +51,24 @@ int		ft_printf(char *format, ...)
 				ft_putchar('@');
 				format++;
 			}
-			if (*format == 'u')
+			if (*format == 'u' || *format == 'U')
 			{
-				ft_pick_uns_type(specs, ptr);
+				ft_pick_uns_type(specs, ptr, *format);
+				format++;
+			}
+			if (*format == 'p')
+			{
+				ft_print_adr(va_arg(ptr, unsigned long long), specs);
+				format++;
+			}
+			if (*format == 's')
+			{
+				ft_pick_str_type(specs, ptr);
+				format++;
+			}
+			if (*format == 'c')
+			{
+				ft_pick_chr_type(specs, ptr);
 				format++;
 			}
 			specs = ft_peace_maker();

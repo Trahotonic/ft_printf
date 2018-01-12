@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/12 14:33:32 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/12 14:33:32 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./srcs/prlib.h"
+#include "../prlib.h"
 
-int		main()
+void	ft_print_str(char *str, t_specs specs)
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
-	return (0);
+	ft_equal_dis_str(&specs, str);
+	if (specs.leftside == 1)
+		ft_place_str_left(str, specs);
+	else
+		ft_place_str_right(str, specs);
 }
