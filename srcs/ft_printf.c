@@ -73,7 +73,7 @@ int		ft_printf(char *format, ...)
 			}
 			specs = ft_peace_maker();
 		}
-		if (*format != '%')
+		if (*format != '%' && *format != '\0')
 		{
 			ft_putchar(*format);
 			format++;
@@ -81,5 +81,6 @@ int		ft_printf(char *format, ...)
 		ret++;
 	}
 	va_end(ptr);
+	// printf("ptr closed\n");
 	return (ret);
 }

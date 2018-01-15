@@ -8,9 +8,9 @@ static char	*ft_create_first(char *first, int size)
 	count = 0;
 	while (count < 8)
 	{
-		if (count + 1 < size)
+		if (count < size)
 			first[count] = '1';
-		else if (count + 1 == size)
+		else if (count == size)
 			first[count] = '0';
 		else
 			first[count] = 'x';
@@ -42,7 +42,7 @@ char	**ft_create_mask(int size)
 	char **list;
 	int	count;
 
-	list = (char**)malloc(sizeof(char*) * size);
+	list = (char**)malloc(sizeof(char*) * size + 1);
 	count = 0;
 	while (count < size)
 	{
