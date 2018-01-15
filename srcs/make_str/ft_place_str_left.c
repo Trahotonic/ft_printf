@@ -25,7 +25,9 @@ void	ft_place_str_left(char *str, t_specs specs)
 	}
 	else
 		ft_putstr(str);
-	if(specs.acc_flag != 1)
-		while (count < specs.width)
-			ft_putchar(' ');
+	while (count < specs.width)
+	{
+		ft_putchar(' ');
+		count++;
+	}
 }
