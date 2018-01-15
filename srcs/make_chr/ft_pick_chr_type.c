@@ -19,6 +19,6 @@ void	ft_pick_chr_type(t_specs specs, va_list ptr)
 	x = va_arg(ptr, int);
 	//if (x >= 128)
 	//	ft_print_uni(x);
-	else
+	//else
 		ft_print_chr(x, specs);
 }
