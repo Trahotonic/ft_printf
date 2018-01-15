@@ -12,30 +12,36 @@
 
 #include "../prlib.h"
 
-void	ft_place_uns_left(unsigned long long n, t_specs specs)
+int	ft_place_uns_left(unsigned long long n, t_specs specs)
 {
 	int		count;
+	int		ret;
+	char	*str;
 
+	str = NULL;
+	ret = 0;
 	if (specs.hh == 1)
 		n = (unsigned char)n;
 	if (specs.h == 1)
 		n = (unsigned short)n;
 	count = 0;
-	if (specs.space == 1)
-		ft_putchar(' ');
-	if (specs.plus == 1)
-		ft_putchar('+');
 	while (count < specs.accuracy)
 	{
 		ft_putchar('0');
 		count++;
+		ret++;
 	}
-	ft_putstr(ft_uitoa_base(n, 10));
+	str = ft_uitoa_base(n, 10);
+	ft_putstr(str);
+	ret += ft_strlen(str);
+	free(str);
 	count = 0;
 	while (count < specs.width - specs.space)
 	{
 		ft_putchar(' ');
 		count++;
+		ret++;
 	}
+	return (ret);
 }
 

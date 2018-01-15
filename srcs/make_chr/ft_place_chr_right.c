@@ -12,12 +12,14 @@
 
 #include "../prlib.h"
 
-void	ft_place_chr_right(char c, t_specs specs)
+int	ft_place_chr_right(char c, t_specs specs)
 {
 	int	count;
+	int ret;
 	char fill;
 
 	count = 0;
+	ret = 0;
 	fill = ' ';
 	if (specs.zero == 1)
 		fill = '0';
@@ -25,6 +27,9 @@ void	ft_place_chr_right(char c, t_specs specs)
 	{
 		ft_putchar(fill);
 		count++;
+		ret++;
 	}
 	ft_putchar(c);
+	ret++;
+	return (ret);
 }

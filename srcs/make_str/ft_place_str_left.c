@@ -12,22 +12,34 @@
 
 #include "../prlib.h"
 
-void	ft_place_str_left(char *str, t_specs specs)
+int	ft_place_str_left(char *str, t_specs specs)
 {
 	int	count;
+	int	ret;
 
+	ret = 0;
+	if (str == NULL)
+		str = "(null)";
 	count = 0;
 	if (specs.acc_flag == 1)
 	{
 		while (count < specs.accuracy && str[count] != '\0')
+		{
 			ft_putchar(str[count++]);
+			ret++;
+		}
 		count = 0;
 	}
 	else
+	{
 		ft_putstr(str);
+		ret += ft_strlen(str);
+	}
 	while (count < specs.width)
 	{
 		ft_putchar(' ');
 		count++;
+		ret++;
 	}
+	return (ret);
 }

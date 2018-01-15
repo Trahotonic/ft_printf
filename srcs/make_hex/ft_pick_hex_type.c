@@ -49,21 +49,21 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-void	ft_pick_hex_type(t_specs specs, va_list ptr, char x)
+int			ft_pick_hex_type(t_specs specs, va_list ptr, char x)
 {
 	ft_king_of_the_hill(&specs);
 	if (specs.l == 1)
-		ft_print_hex(va_arg(ptr, unsigned long), specs, x);
+		return (ft_print_hex(va_arg(ptr, unsigned long), specs, x));
 	else if (specs.ll == 1)
-		ft_print_hex(va_arg(ptr, unsigned long long), specs, x);
+		return (ft_print_hex(va_arg(ptr, unsigned long long), specs, x));
 	else if (specs.h == 1)
-		ft_print_hex(va_arg(ptr, unsigned int), specs, x);
+		return (ft_print_hex(va_arg(ptr, unsigned int), specs, x));
 	else if (specs.hh == 1)
-		ft_print_hex(va_arg(ptr, unsigned int), specs, x);
+		return (ft_print_hex(va_arg(ptr, unsigned int), specs, x));
 	else if (specs.j == 1)
-		ft_print_hex(va_arg(ptr, uintmax_t), specs, x);
+		return (ft_print_hex(va_arg(ptr, uintmax_t), specs, x));
 	else if (specs.z == 1)
-		ft_print_hex(va_arg(ptr, size_t), specs, x);
+		return (ft_print_hex(va_arg(ptr, size_t), specs, x));
 	else
-		ft_print_hex(va_arg(ptr, unsigned int), specs, x);
+		return (ft_print_hex(va_arg(ptr, unsigned int), specs, x));
 }

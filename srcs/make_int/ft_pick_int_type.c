@@ -49,26 +49,23 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-void	ft_pick_int_type(t_specs specs, va_list ptr, char d)
+int			ft_pick_int_type(t_specs specs, va_list ptr, char d)
 {
 	if (d == 'D')
-	{
-		ft_print_int(va_arg(ptr, long long), specs);
-		return ;
-	}
+		return (ft_print_int(va_arg(ptr, long long), specs));
 	ft_king_of_the_hill(&specs);
 	if (specs.l == 1)
-		ft_print_int(va_arg(ptr, long), specs);
+		return (ft_print_int(va_arg(ptr, long), specs));
 	else if (specs.ll == 1)
-		ft_print_int(va_arg(ptr, long long), specs);
+		return (ft_print_int(va_arg(ptr, long long), specs));
 	else if (specs.h == 1)
-		ft_print_int(va_arg(ptr, int), specs);
+		return (ft_print_int(va_arg(ptr, int), specs));
 	else if (specs.hh == 1)
-		ft_print_int(va_arg(ptr, int), specs);
+		return (ft_print_int(va_arg(ptr, int), specs));
 	else if (specs.j == 1)
-		ft_print_int(va_arg(ptr, intmax_t), specs);
+		return (ft_print_int(va_arg(ptr, intmax_t), specs));
 	else if (specs.z == 1)
-		ft_print_int(va_arg(ptr, size_t), specs);
+		return (ft_print_int(va_arg(ptr, size_t), specs));
 	else
-		ft_print_int(va_arg(ptr, int), specs);
+		return (ft_print_int(va_arg(ptr, int), specs));
 }

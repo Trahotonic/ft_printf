@@ -32,7 +32,7 @@ void	ft_equal_dis_uns(t_specs *specs, unsigned long long n)
 	specs->accuracy -= ft_siz(n);
 	if (specs->accuracy < 0)
 		specs->accuracy = 0;
-	specs->width -= (specs->accuracy + ft_siz(n) + specs->plus);
+	specs->width -= (specs->accuracy + ft_siz(n));
 	if (specs->plus == 1 && specs->space == 1)
 		specs->space = 0;
 }

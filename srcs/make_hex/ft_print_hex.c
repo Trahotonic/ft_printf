@@ -12,11 +12,11 @@
 
 #include "../prlib.h"
 
-void	ft_print_hex(unsigned long long n, t_specs specs, char x)
+int	ft_print_hex(unsigned long long n, t_specs specs, char x)
 {
 	ft_equal_dis_hex(&specs, n);
 	if (specs.leftside == 1)
-		ft_place_hex_left(n, specs, x);
+		return (ft_place_hex_left(n, specs, x));
 	else
-		ft_place_hex_right(n, specs, x);
+		return (ft_place_hex_right(n, specs, x));
 }

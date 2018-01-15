@@ -12,7 +12,7 @@
 
 #include "../prlib.h"
 
-void	ft_pick_chr_type(t_specs specs, va_list ptr)
+int	ft_pick_chr_type(t_specs specs, va_list ptr)
 {
 	int	x;
 
@@ -20,5 +20,5 @@ void	ft_pick_chr_type(t_specs specs, va_list ptr)
 	//if (x >= 128)
 	//	ft_print_uni(x);
 	//else
-		ft_print_chr(x, specs);
+	return (ft_print_chr(x, specs));
 }

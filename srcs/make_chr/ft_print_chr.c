@@ -12,12 +12,12 @@
 
 #include "../prlib.h"
 
-void	ft_print_chr(char c, t_specs specs)
+int	ft_print_chr(char c, t_specs specs)
 {
 	ft_equal_dis_chr(&specs);
 	if (specs.leftside == 1)
-		ft_place_chr_left(c, specs);
+		return (ft_place_chr_left(c, specs));
 	else
-		ft_place_chr_right(c, specs);
+		return (ft_place_chr_right(c, specs));
 }
 

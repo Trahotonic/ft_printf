@@ -12,11 +12,11 @@
 
 #include "../prlib.h"
 
-void	ft_print_oct(unsigned long long n, t_specs specs)
+int	ft_print_oct(unsigned long long n, t_specs specs)
 {
 	ft_equal_dis_oct(&specs, n);
 	if (specs.leftside == 1)
-		ft_place_oct_left(n, specs);
+		return (ft_place_oct_left(n, specs));
 	else
-		ft_place_oct_right(n, specs);
+		return (ft_place_oct_right(n, specs));
 }

@@ -12,11 +12,11 @@
 
 #include "../prlib.h"
 
-void	ft_print_str(char *str, t_specs specs)
+int	ft_print_str(char *str, t_specs specs)
 {
 	ft_equal_dis_str(&specs, str);
 	if (specs.leftside == 1)
-		ft_place_str_left(str, specs);
+		return (ft_place_str_left(str, specs));
 	else
-		ft_place_str_right(str, specs);
+		return (ft_place_str_right(str, specs));
 }

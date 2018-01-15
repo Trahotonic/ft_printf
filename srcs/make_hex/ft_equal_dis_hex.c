@@ -24,7 +24,8 @@ void	ft_equal_dis_hex(t_specs *specs, unsigned long long n)
 	specs->accuracy -= ft_strlen(num);
 	if (specs->accuracy < 0)
 		specs->accuracy = 0;
-	specs->width -= (specs->accuracy + ft_strlen(num) + (specs->hash * 2));
+	if (!(specs->acc_flag == 1 && specs->accuracy == 0 && n == 0))
+		specs->width -= (specs->accuracy + ft_strlen(num) + (specs->hash * 2));
 	if (specs->space == 1)
 		specs->space = 0;
 	if (n == 0 && specs->hash == 1)

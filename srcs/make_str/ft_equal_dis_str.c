@@ -16,10 +16,22 @@ void	ft_equal_dis_str(t_specs *specs, char *str)
 {
 	if (specs->leftside == 1)
 		specs->zero = 0;
-	if (specs->accuracy > (int)ft_strlen(str))
-		specs->accuracy = ft_strlen(str);
-	if (specs->acc_flag == 1)
-		specs->width -= specs->accuracy;
+	if (str != NULL)
+	{
+		if (specs->accuracy > (int)ft_strlen(str))
+			specs->accuracy = ft_strlen(str);
+		if (specs->acc_flag == 1)
+			specs->width -= specs->accuracy;
+		else
+			specs->width -= ft_strlen(str);
+	}
 	else
-		specs->width -= ft_strlen(str);
+	{
+		if (specs->accuracy > 6)
+			specs->accuracy = 6;
+		if (specs->acc_flag == 1)
+			specs->width -= specs->accuracy;
+		else
+			specs->width -= 6;
+	}
 }
