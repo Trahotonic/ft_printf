@@ -76,7 +76,6 @@ $(NAME):
 				@ gcc $(FLAGS) $(OPTIONS) $(SOURCES)
 				@ ar rc $(NAME) $(OBJECTS)
 				@ ranlib $(NAME)
-				@ /bin/rm -f $(OBJECTS)
 clean:
 				@ /bin/rm -f $(OBJECTS)
 
