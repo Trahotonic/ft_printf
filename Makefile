@@ -38,6 +38,8 @@ SOURCES =	./srcs/convert/ft_allow.c ./srcs/convert/ft_itoa.c ./srcs/convert/ft_g
 \
 			./srcs/make_str/ft_pick_str_type.c ./srcs/make_str/ft_equal_dis_str.c ./srcs/make_str/ft_place_str_left.c ./srcs/make_str/ft_place_str_right.c ./srcs/make_str/ft_print_str.c			\
 \
+			./srcs/make_per/ft_equal_dis_per.c ./srcs/make_per/ft_place_per_left.c ./srcs/make_per/ft_place_per_right.c ./srcs/make_per/ft_print_per.c													\
+\
 			./srcs/unicode/ft_btoi.c ./srcs/unicode/ft_create_mask.c ./srcs/unicode/ft_make_do.c ./srcs/unicode/ft_make_int_array.c ./srcs/unicode/ft_print_uni.c									\
 \
 			./srcs/ft_printf.c
@@ -61,6 +63,8 @@ OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_a
 			ft_pick_chr_type.o ./ft_equal_dis_chr.o  ./ft_place_chr_left.o ./ft_place_chr_right.o ./ft_print_chr.o	\
 \
 			./ft_pick_str_type.o ./ft_equal_dis_str.o ./ft_place_str_left.o ./ft_place_str_right.o ./ft_print_str.o	\
+\
+			./ft_equal_dis_per.o ./ft_place_per_left.o ./ft_place_per_right.o ./ft_print_per.o						\
 \
 			./ft_btoi.o ./ft_create_mask.o ./ft_make_do.o ./ft_make_int_array.o ./ft_print_uni.o					\
 \

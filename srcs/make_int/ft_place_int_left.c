@@ -30,7 +30,7 @@ int	ft_place_int_left(long long n, t_specs specs)
 		ft_putchar(' ');
 		ret++;
 	}
-	if (n < 0 && n != -2147483648)
+	if (n < 0)
 	{
 		ft_putchar('-');
 		ret++;

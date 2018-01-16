@@ -26,5 +26,5 @@ char	*ft_get_width(char *format, t_specs *specs)
 	while (isdigit(*format))
 		format++;
 	format -= 1;
-	return format;
+	return (format);
 }

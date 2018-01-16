@@ -43,12 +43,7 @@ int		ft_printf(char *format, ...)
 			}
 			if (*format == '%')
 			{
-				ft_putchar('%');
-				format++;
-			}
-			if (*format == '@')
-			{
-				ft_putchar('@');
+				ret += ft_print_per(specs);
 				format++;
 			}
 			if (*format == 'u' || *format == 'U')
@@ -66,9 +61,9 @@ int		ft_printf(char *format, ...)
 				ret += ft_pick_str_type(specs, ptr);
 				format++;
 			}
-			if (*format == 'c')
+			if (*format == 'c' || *format == 'C')
 			{
-				ret += ft_pick_chr_type(specs, ptr);
+				ret += ft_pick_chr_type(specs, ptr, *format);
 				format++;
 			}
 			specs = ft_peace_maker();

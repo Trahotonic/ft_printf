@@ -12,7 +12,7 @@
 
 #include "../prlib.h"
 
-int	ft_place_chr_right(char c, t_specs specs)
+int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 {
 	int	count;
 	int ret;
@@ -29,7 +29,10 @@ int	ft_place_chr_right(char c, t_specs specs)
 		count++;
 		ret++;
 	}
-	ft_putchar(c);
+	if (uni == 'C')
+		ft_print_uni(c);
+	else
+		ft_putchar(c);
 	ret++;
 	return (ret);
 }

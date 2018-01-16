@@ -12,30 +12,45 @@
 
 #include "../prlib.h"
 
+typedef struct			s_pozor
+{
+	char				*array;
+	char				tmp[60];
+	char				*ret;
+	int					size;
+	int					ptr;
+	int					minus;
+	unsigned long long	backup;
+}						t_pozor;
+
 char	*ft_itoa_base(long long value, int base)
 {
-	char	*array;
-	char	tmp[60];
-	char	*ret;
-	int		size;
-	int		ptr;
+	t_pozor vars;
 
+	vars.minus = 0;
 	if (value == 0)
 		return (ft_go_zero());
-	array = "0123456789ABCDEF";
-	size = 0;
-	ptr = 59;
-	while (value != 0)
+	if (value < 0 && base == 10)
 	{
-		tmp[ptr--] = array[value % base];
-		value /= base;
-		size++;
+		vars.minus = 1;
+		vars.backup = -value;
 	}
-	ptr++;
-	ret = (char*)malloc(sizeof(char) * (size + 1));
-	size = 0;
-	while (ptr <= 59)
-		ret[size++] = tmp[ptr++];
-	ret[size] = '\0';
-	return (ret);
+	else
+		vars.backup = value;
+	vars.array = "0123456789ABCDEF";
+	vars.size = 0;
+	vars.ptr = 59;
+	while (vars.backup != 0)
+	{
+		vars.tmp[vars.ptr--] = vars.array[vars.backup % base];
+		vars.backup /= base;
+		vars.size++;
+	}
+	vars.ptr++;
+	vars.ret = (char*)malloc(sizeof(char) * (vars.size + 1 + vars.minus));
+	vars.size = 0;
+	while (vars.ptr <= 59)
+		vars.ret[vars.size++] = vars.tmp[vars.ptr++];
+	vars.ret[vars.size] = '\0';
+	return (vars.ret);
 }

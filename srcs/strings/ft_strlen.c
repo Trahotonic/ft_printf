@@ -12,7 +12,7 @@
 
 #include "../prlib.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(char const *str)
 {
 	size_t ret;
 

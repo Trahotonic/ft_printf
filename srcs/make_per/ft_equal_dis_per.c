@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_equal_dis_per.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:24:26 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:24:27 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/16 12:31:39 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/16 12:31:40 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../prlib.h"
 
-void	ft_putstr(char const *s)
+void	ft_equal_dis_per(t_specs *specs)
 {
-	if (s)
-		write(1, s, ft_strlen(s));
+	specs->width -= 1;
 }
