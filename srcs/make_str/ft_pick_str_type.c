@@ -49,8 +49,11 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-int			ft_pick_str_type(t_specs specs, va_list ptr)
+int			ft_pick_str_type(t_specs specs, va_list ptr, char s)
 {
 	ft_king_of_the_hill(&specs);
-	return (ft_print_str(va_arg(ptr, char*), specs));
+	if (s == 'S')
+		return (ft_print_unistr(va_arg(ptr, wchar_t*), specs));
+	else
+		return (ft_print_str(va_arg(ptr, char*), specs));
 }
