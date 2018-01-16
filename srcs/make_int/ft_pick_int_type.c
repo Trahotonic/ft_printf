@@ -23,8 +23,6 @@ static void	ft_silence(t_specs *specs)
 
 static void	ft_king_of_the_hill(t_specs *specs)
 {
-	if (specs->hh == 1)
-		specs->h = 0;
 	if (specs->l == 1)
 	{
 		specs->h = 0;

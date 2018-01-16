@@ -47,11 +47,13 @@ char	*ft_collect(char *format, t_specs *specs)
 		if (*format == 'h')
 		{
 			specs->h = 1;
+			specs->hh = 0;
 			format++;
 			if (*format == 'h')
 			{
 				specs->hh = 1;
 				specs->h = 0;
+				format ++;
 			}
 			format--;
 		}

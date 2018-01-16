@@ -20,10 +20,10 @@ int	ft_place_int_left(long long n, t_specs specs)
 
 	ret = 0;
 	str = NULL;
-	if (specs.hh == 1)
-		n = (signed char)n;
 	if (specs.h == 1)
 		n = (short)n;
+	if (specs.hh == 1)
+		n = (signed char)n;
 	count = 0;
 	if (specs.space == 1)
 	{
