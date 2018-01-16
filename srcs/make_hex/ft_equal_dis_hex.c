@@ -30,4 +30,5 @@ void	ft_equal_dis_hex(t_specs *specs, unsigned long long n)
 		specs->space = 0;
 	if (n == 0 && specs->hash == 1)
 		specs->hash = 0;
+	free(num);
 }

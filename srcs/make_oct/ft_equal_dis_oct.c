@@ -28,4 +28,5 @@ void	ft_equal_dis_oct(t_specs *specs, unsigned long long n)
 		specs->width -= (specs->accuracy + ft_strlen(num) + specs->hash);
 	if (specs->space == 1)
 		specs->space = 0;
+	free(num);
 }
