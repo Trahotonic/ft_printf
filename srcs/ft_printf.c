@@ -56,7 +56,7 @@ int		ft_printf(char *format, ...)
 				ret += ft_print_adr(va_arg(ptr, unsigned long long), specs);
 				format++;
 			}
-			if (*format == 's')
+			if (*format == 's' || *format == 'S')
 			{
 				ret += ft_pick_str_type(specs, ptr);
 				format++;

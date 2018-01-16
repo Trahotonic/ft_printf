@@ -89,7 +89,7 @@ int				ft_place_chr_left(unsigned int c, t_specs specs, char uni);
 int				ft_place_chr_right(unsigned int c, t_specs specs, char uni);
 int				ft_print_chr(unsigned int c, t_specs specs, char uni);
 void			ft_equal_dis_str(t_specs *specs, char *str);
-int				ft_pick_str_type(t_specs specs, va_list ptr);
+int				ft_pick_str_type(t_specs specs, va_list ptr, char s);
 int				ft_place_str_left(char *str, t_specs specs);
 int				ft_place_str_right(char *str, t_specs specs);
 int				ft_print_str(char *str, t_specs specs);
