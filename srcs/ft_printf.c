@@ -52,38 +52,37 @@ int		ft_printf(char *format, ...)
 				ret += ft_print_per(specs);
 				format++;
 			}
-			if (*format == 'd' || *format == 'D' || *format == 'i')
+			else if (*format == 'd' || *format == 'D' || *format == 'i')
 			{
 				ret += ft_pick_int_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == 'x' || *format == 'X')
+			else if (*format == 'x' || *format == 'X')
 			{
 				ret += ft_pick_hex_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == 'o' || *format == 'O')
+			else if (*format == 'o' || *format == 'O')
 			{
 				ret += ft_pick_oct_type(specs, ptr, *format);
 				format++;
 			}
-			
-			if (*format == 'u' || *format == 'U')
+			else if (*format == 'u' || *format == 'U')
 			{
 				ret += ft_pick_uns_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == 'p')
+			else if (*format == 'p')
 			{
 				ret += ft_print_adr(va_arg(ptr, unsigned long long), specs);
 				format++;
 			}
-			if (*format == 's' || *format == 'S')
+			else if (*format == 's' || *format == 'S')
 			{
 				ret += ft_pick_str_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == 'c' || *format == 'C')
+			else if (*format == 'c' || *format == 'C')
 			{
 				ret += ft_pick_chr_type(specs, ptr, *format);
 				format++;
