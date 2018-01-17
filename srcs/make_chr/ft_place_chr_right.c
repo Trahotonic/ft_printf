@@ -29,7 +29,7 @@ int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 		count++;
 		ret++;
 	}
-	if (uni == 'C' && MB_CUR_MAX != 1)
+	if (uni == 'C' && MB_CUR_MAX != 1 && c > 127)
 		ft_print_uni(c);
 	else
 		ft_putchar(c);
