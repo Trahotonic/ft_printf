@@ -25,7 +25,7 @@ int	ft_place_oct_left(unsigned long long n, t_specs specs)
 	if (specs.h == 1)
 		n = (unsigned short)n;
 	count = 0;
-	if (specs.hash == 1)
+	if (specs.hash == 1 && n != 0)
 	{
 		ft_putchar('0');
 		ret++;
