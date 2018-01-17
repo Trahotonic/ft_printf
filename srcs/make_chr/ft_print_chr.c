@@ -14,7 +14,7 @@
 
 int	ft_print_chr(unsigned int c, t_specs specs, char uni)
 {
-	ft_equal_dis_chr(&specs);
+	ft_equal_dis_chr(&specs, c);
 	if (specs.leftside == 1)
 		return (ft_place_chr_left(c, specs, uni));
 	else

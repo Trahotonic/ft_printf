@@ -12,14 +12,11 @@
 
 #include "../prlib.h"
 
-void	ft_print_unistr(wchar_t *str)
+int	ft_print_unistr(wchar_t *str, t_specs specs)
 {
-	size_t n;
-
-	n = 0;
-	while (str[n] != '\0')
-	{
-		ft_print_uni(str[n]);
-		n++;
-	}
+	ft_equal_unistr(&specs, str);
+	if (specs.leftside == 1)
+		return (ft_place_ust_left(str, specs));
+	else
+		return (ft_place_ust_right(str, specs));
 }

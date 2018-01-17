@@ -12,6 +12,25 @@
 
 #include "prlib.h"
 
+static int		ft_check_SC(char *format)
+{
+	while (*format != '\0' && MB_CUR_MAX == 1)
+	{
+		if (*format == '%')
+		{
+			format++;
+			while (!ft_check_invalid(format))
+				format++;
+			if (*format == 'C' || *format == 'S')
+				return (1);
+			else
+				return (0);
+		}
+		format++;
+	}
+	return (0);
+}
+
 int		ft_printf(char *format, ...)
 {
 	int		ret;
@@ -23,9 +42,16 @@ int		ft_printf(char *format, ...)
 	va_start(ptr, format);
 	while (*format != '\0')
 	{
+		if (ft_check_SC(format))
+			break ;
 		if (*format == '%')
 		{
 			format = ft_collect(format + 1, &specs);
+			if (*format == '%')
+			{
+				ret += ft_print_per(specs);
+				format++;
+			}
 			if (*format == 'd' || *format == 'D' || *format == 'i')
 			{
 				ret += ft_pick_int_type(specs, ptr, *format);
@@ -41,11 +67,7 @@ int		ft_printf(char *format, ...)
 				ret += ft_pick_oct_type(specs, ptr, *format);
 				format++;
 			}
-			if (*format == '%')
-			{
-				ret += ft_print_per(specs);
-				format++;
-			}
+			
 			if (*format == 'u' || *format == 'U')
 			{
 				ret += ft_pick_uns_type(specs, ptr, *format);
@@ -58,7 +80,7 @@ int		ft_printf(char *format, ...)
 			}
 			if (*format == 's' || *format == 'S')
 			{
-				ret += ft_pick_str_type(specs, ptr);
+				ret += ft_pick_str_type(specs, ptr, *format);
 				format++;
 			}
 			if (*format == 'c' || *format == 'C')

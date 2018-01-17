@@ -36,7 +36,7 @@ SOURCES =	./srcs/convert/ft_allow.c ./srcs/convert/ft_itoa.c ./srcs/convert/ft_g
 \
 			./srcs/make_chr/ft_pick_chr_type.c ./srcs/make_chr/ft_equal_dis_chr.c ./srcs/make_chr/ft_place_chr_left.c ./srcs/make_chr/ft_place_chr_right.c ./srcs/make_chr/ft_print_chr.c			\
 \
-			./srcs/make_str/ft_pick_str_type.c ./srcs/make_str/ft_equal_dis_str.c ./srcs/make_str/ft_place_str_left.c ./srcs/make_str/ft_place_str_right.c ./srcs/make_str/ft_print_str.c			\
+			./srcs/make_str/ft_pick_str_type.c ./srcs/make_str/ft_equal_dis_str.c ./srcs/make_str/ft_place_str_left.c ./srcs/make_str/ft_place_str_right.c ./srcs/make_str/ft_print_str.c ./srcs/make_str/ft_equal_unistr.c ./srcs/make_str/ft_place_uni.c ./srcs/make_str/ft_place_ust_left.c ./srcs/make_str/ft_place_ust_right.c ./srcs/make_str/ft_print_unistr.c \
 \
 			./srcs/make_per/ft_equal_dis_per.c ./srcs/make_per/ft_place_per_left.c ./srcs/make_per/ft_place_per_right.c ./srcs/make_per/ft_print_per.c													\
 \
@@ -62,7 +62,7 @@ OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_a
 \
 			ft_pick_chr_type.o ./ft_equal_dis_chr.o  ./ft_place_chr_left.o ./ft_place_chr_right.o ./ft_print_chr.o	\
 \
-			./ft_pick_str_type.o ./ft_equal_dis_str.o ./ft_place_str_left.o ./ft_place_str_right.o ./ft_print_str.o	\
+			./ft_pick_str_type.o ./ft_equal_dis_str.o ./ft_place_str_left.o ./ft_place_str_right.o ./ft_print_str.o	./ft_equal_unistr.o ./ft_place_uni.o ./ft_place_ust_left.o ./ft_place_ust_right.o ./ft_print_unistr.o \
 \
 			./ft_equal_dis_per.o ./ft_place_per_left.o ./ft_place_per_right.o ./ft_print_per.o						\
 \

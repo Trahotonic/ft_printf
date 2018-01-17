@@ -52,7 +52,7 @@ static void	ft_king_of_the_hill(t_specs *specs)
 int			ft_pick_str_type(t_specs specs, va_list ptr, char s)
 {
 	ft_king_of_the_hill(&specs);
-	if (s == 'S')
+	if (s == 'S' && MB_CUR_MAX != 1)
 		return (ft_print_unistr(va_arg(ptr, wchar_t*), specs));
 	else
 		return (ft_print_str(va_arg(ptr, char*), specs));

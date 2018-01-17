@@ -10,11 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
 #include "./srcs/prlib.h"
+#include <locale.h>
 
 int		main()
 {
-	ft_printf("mine: |%010c\n", 'a');
-	   printf("orig: |%010c\n", 'a');
+	setlocale(LC_ALL, "");
+
+	ft_printf("mine: |%-40S\n", L"машина");
+	   printf("orig: |%-40S\n", L"машина");
 	return (0);
 }

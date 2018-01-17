@@ -18,7 +18,6 @@ int		ft_check_invalid(char *format)
 		*format != '#' && *format != ' ' && *format != '.' &&
 		!isdigit(*format) && *format != '*' && *format != 'l'
 		&& *format != 'h' && *format != 'z' && *format != 'j')
-
 		return (1);
 	return (0);
 }
