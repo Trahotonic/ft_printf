@@ -47,6 +47,80 @@ static void			ft_put_inval_width(int width, int zero)
 	}
 }
 
+static int			ft_check_valid_sp(char c)
+{
+	if (c == '%' || c == 'd' || c == 'D' || c == 'i' || c == 'x' || c == 'X' ||
+		c == 'o' || c == 'O' || c == 'u' || c == 'U' || c == 'p' || c == 's' ||
+		c == 'S' || c == 'c' || c == 'C')
+		return (1);
+	return (0);
+}
+
+static int			ft_pick_func(char c, t_specs specs, va_list ptr)
+{
+	if (c == '%')
+		return (ft_print_per(specs));
+	else if (c == 'd' || c == 'D' || c == 'i')
+		return (ft_pick_int_type(specs, ptr, c));
+	else if (c == 'x' || c == 'X')
+		return (ft_pick_hex_type(specs, ptr, c));
+	else if (c == 'o' || c == 'O')
+		return (ft_pick_oct_type(specs, ptr, c));
+	else if (c == 'u' || c == 'U')
+		return (ft_pick_uns_type(specs, ptr, c));
+	else if (c == 'p')
+		return (ft_print_adr(va_arg(ptr, unsigned long long), specs));
+	else if (c == 's' || c == 'S')
+		return (ft_pick_str_type(specs, ptr, c));
+	else if (c == 'c' || c == 'C')
+		return (ft_pick_chr_type(specs, ptr, c));
+	return (0);
+}
+
+static int ft_for_inval_wid(char *format, t_specs specs, int ret)
+{
+	if (specs.width > 1 && specs.leftside == 0)
+		ft_put_inval_width(specs.width, specs.zero);
+	write(1, &*format, 1);
+	if (specs.width > 1 && specs.leftside == 1)
+		ft_put_inval_width(specs.width, specs.zero);
+	ret += 1;
+	if (specs.width > 0)
+		ret += specs.width - 1;
+	return (ret);
+}
+
+static char	*ft_do_inval(char *format, int *ret, int *flag, t_specs specs)
+{
+	*flag = 1;
+	if (*format != '\0')
+	{
+		*ret = ft_for_inval_wid(format, specs, *ret);
+		format++;
+	}
+	specs = ft_peace_maker();
+	return (format);
+}
+
+static char *ft_lil_shit(char *format, int *ret, int flag)
+{
+	if (*format != '%' && *format != '\0' && flag == 0)
+	{
+		write(1, &*format, 1);
+		*ret += 1;
+		format++;
+	}
+	return (format);
+}
+
+static void	*ft_for_valid(char *format, int *ret, t_specs specs, va_list ptr)
+{
+	*ret += ft_pick_func(*format, specs, ptr);
+	format++;
+	specs = ft_peace_maker();
+	return (format);
+}
+
 int		ft_printf(char *format, ...)
 {
 	int		ret;
@@ -65,70 +139,12 @@ int		ft_printf(char *format, ...)
 		if (*format == '%')
 		{
 			format = ft_collect(format + 1, &specs, ptr);
-			if (*format == '%')
-			{
-				ret += ft_print_per(specs);
-				format++;
-			}
-			else if (*format == 'd' || *format == 'D' || *format == 'i')
-			{
-				ret += ft_pick_int_type(specs, ptr, *format);
-				format++;
-			}
-			else if (*format == 'x' || *format == 'X')
-			{
-				ret += ft_pick_hex_type(specs, ptr, *format);
-				format++;
-			}
-			else if (*format == 'o' || *format == 'O')
-			{
-				ret += ft_pick_oct_type(specs, ptr, *format);
-				format++;
-			}
-			else if (*format == 'u' || *format == 'U')
-			{
-				ret += ft_pick_uns_type(specs, ptr, *format);
-				format++;
-			}
-			else if (*format == 'p')
-			{
-				ret += ft_print_adr(va_arg(ptr, unsigned long long), specs);
-				format++;
-			}
-			else if (*format == 's' || *format == 'S')
-			{
-				ret += ft_pick_str_type(specs, ptr, *format);
-				format++;
-			}
-			else if (*format == 'c' || *format == 'C')
-			{
-				ret += ft_pick_chr_type(specs, ptr, *format);
-				format++;
-			}
+			if (ft_check_valid_sp(*format))
+				format = ft_for_valid(format, &ret, specs, ptr);
 			else
-			{
-				flag = 1;
-				if (*format != '\0')
-				{
-					if (specs.width > 1 && specs.leftside == 0)
-						ft_put_inval_width(specs.width, specs.zero);
-					ft_putchar(*format);
-					if (specs.width > 1 && specs.leftside == 1)
-						ft_put_inval_width(specs.width, specs.zero);
-					ret += 1;
-					if (specs.width > 0)
-						ret += specs.width - 1;
-					format++;
-				}
-			}
-			specs = ft_peace_maker();
+				format = ft_do_inval(format, &ret, &flag, specs);
 		}
-		if (*format != '%' && *format != '\0' && flag == 0)
-		{
-			ft_putchar(*format);
-			ret += 1;
-			format++;
-		}
+		format = ft_lil_shit(format, &ret, flag);
 	}
 	va_end(ptr);
 	return (ret);
