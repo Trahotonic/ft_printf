@@ -24,23 +24,31 @@ static int	ft_check_size(unsigned int c)
 		return (4);
 }
 
-int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
+static void	ft_place_wid(t_specs specs, char fill, int *ret)
 {
-	int	count;
-	int ret;
-	char fill;
+	int		count;
+
+	count = 0;
+	while (count < specs.width)
+	{
+		write(1, &fill, 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_chr_right(unsigned int c, t_specs specs, char uni)
+{
+	int		count;
+	int		ret;
+	char	fill;
 
 	count = 0;
 	ret = 0;
 	fill = ' ';
 	if (specs.zero == 1)
 		fill = '0';
-	while (count < specs.width)
-	{
-		ft_putchar(fill);
-		count++;
-		ret++;
-	}
+	ft_place_wid(specs, fill, &ret);
 	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 127)
 	{
 		ft_print_uni(c);
@@ -48,7 +56,7 @@ int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 	}
 	else
 	{
-		ft_putchar(c);
+		write(1, &c, 1);
 		ret++;
 	}
 	return (ret);

@@ -12,11 +12,26 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_str_right(char *str, t_specs specs)
+static void	ft_for_acc(t_specs specs, char *str, int *ret, int count)
 {
-	int	count;
-	char fill;
-	int	ret;
+	if (specs.acc_flag == 1)
+		while (count < specs.accuracy && str[count] != '\0')
+		{
+			write(1, &str[count++], 1);
+			*ret += 1;
+		}
+	else
+	{
+		ft_putstr(str);
+		*ret += ft_strlen(str);
+	}
+}
+
+int			ft_place_str_right(char *str, t_specs specs)
+{
+	int		count;
+	char	fill;
+	int		ret;
 
 	ret = 0;
 	if (str == NULL)
@@ -32,16 +47,6 @@ int	ft_place_str_right(char *str, t_specs specs)
 		ret++;
 	}
 	count = 0;
-	if (specs.acc_flag == 1)
-		while (count < specs.accuracy && str[count] != '\0')
-		{
-			write(1, &str[count++], 1);
-			ret++;
-		}
-	else
-	{
-		ft_putstr(str);
-		ret += ft_strlen(str);
-	}
+	ft_for_acc(specs, str, &ret, count);
 	return (ret);
 }

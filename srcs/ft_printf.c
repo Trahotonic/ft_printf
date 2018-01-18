@@ -64,7 +64,7 @@ int		ft_printf(char *format, ...)
 			break ;
 		if (*format == '%')
 		{
-			format = ft_collect(format + 1, &specs);
+			format = ft_collect(format + 1, &specs, ptr);
 			if (*format == '%')
 			{
 				ret += ft_print_per(specs);

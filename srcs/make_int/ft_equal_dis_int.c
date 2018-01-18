@@ -14,7 +14,7 @@
 
 static int	ft_siz(long long n)
 {
-	int m;
+	int		m;
 
 	if (n < 0)
 		n = -n;
@@ -27,7 +27,7 @@ static int	ft_siz(long long n)
 	return (m);
 }
 
-void	ft_equal_dis_int(t_specs *specs, long long n)
+void		ft_equal_dis_int(t_specs *specs, long long n)
 {
 	if (specs->leftside == 1 || specs->acc_flag == 1)
 		specs->zero = 0;

@@ -1,9 +1,9 @@
 #include "../../includes/prlib.h"
 
-static int ft_get_wchr_bytes(wchar_t *str)
+static int		ft_get_wchr_bytes(wchar_t *str)
 {
-	size_t	n;
-	int		len;
+	size_t		n;
+	int			len;
 
 	n = 0;
 	len = 0;
@@ -22,11 +22,11 @@ static int ft_get_wchr_bytes(wchar_t *str)
 	return (len);
 }
 
-static int	ft_get_acc_size(wchar_t *str, int accuracy)
+static int		ft_get_acc_size(wchar_t *str, int accuracy)
 {
-	size_t	n;
-	int		ret;
-	int		tmp;
+	size_t		n;
+	int			ret;
+	int			tmp;
 
 	n = 0;
 	ret = 0;
@@ -49,18 +49,23 @@ static int	ft_get_acc_size(wchar_t *str, int accuracy)
 	return (ret);
 }
 
-void	ft_equal_unistr(t_specs *specs, wchar_t *str)
+static wchar_t *ft_check(wchar_t *str, t_specs *specs)
 {
-	int	len;
-
 	if (str == NULL)
 		str = L"(null)";
 	if (specs->leftside == 1)
 		specs->zero = 0;
+	return (str);
+}
+
+void			ft_equal_unistr(t_specs *specs, wchar_t *str)
+{
+	int			len;
+
+	str = ft_check(str, specs);
 	len = ft_get_wchr_bytes(str);
 	if (str != NULL)
 	{
-		
 		if (specs->acc_flag == 1)
 		{
 			if (specs->accuracy > len)

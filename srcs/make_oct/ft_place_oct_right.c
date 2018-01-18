@@ -12,7 +12,42 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_oct_right(unsigned long long n, t_specs specs)
+static void	ft_do_magic(int *ret, unsigned long long n)
+{
+	char	*str;
+
+	str = ft_itoa_base(n, 8);
+	ft_putstr(str);
+	*ret += ft_strlen(str);
+	free(str);
+}
+
+static void	ft_shmatok(t_specs specs, char fill, int *ret)
+{
+	int		count;
+
+	count = 0;
+	while (count < specs.width)
+	{
+		write(1, &fill, 1);
+		count++;
+		*ret += 1;
+	}
+	count = 0;
+	if (fill != '0' && specs.hash == 1)
+	{
+		write(1, "0", 1);
+		*ret += 1;
+	}
+	while (count < specs.accuracy)
+	{
+		write(1, "0", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_oct_right(unsigned long long n, t_specs specs)
 {
 	int 	count;
 	int		ret;
@@ -34,30 +69,8 @@ int	ft_place_oct_right(unsigned long long n, t_specs specs)
 		ft_putchar('0');
 		ret++;
 	}
-	while (count < specs.width)
-	{
-		ft_putchar(fill);
-		count++;
-		ret++;
-	}
-	count = 0;
-	if (fill != '0' && specs.hash == 1)
-	{
-		ft_putchar('0');
-		ret++;
-	}
-	while (count < specs.accuracy)
-	{
-		ft_putchar('0');
-		count++;
-		ret++;
-	}
+	ft_shmatok(specs, fill, &ret);
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		str = ft_itoa_base(n, 8);
-		ft_putstr(str);
-		ret += ft_strlen(str);
-		free(str);
-	}
+		ft_do_magic(&ret, n);
 	return (ret);
 }

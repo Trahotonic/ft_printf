@@ -12,41 +12,51 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_hex_left(unsigned long long n, t_specs specs, char x)
+static void	ft_do_magic(char x, int *ret, unsigned long long n)
+{
+	char	*str;
+
+	str = ft_uitoa_base(n, 16);
+	*ret += ft_strlen(str);
+	if (x == 'x')
+		ft_putstr(ft_allow(str));
+	else
+		ft_putstr(str);
+	free(str);
+}
+
+static void	ft_place_acc(int accuracy, int *ret)
+{
+	int		count;
+
+	count = 0;
+	while (count < accuracy)
+	{
+		write(1, "0", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_hex_left(unsigned long long n, t_specs specs, char x)
 {
 	int		count;
 	int		ret;
-	char	*str;
 
 	ret = 0;
-	str = NULL;
 	if (specs.hh == 1)
 		n = (unsigned char)n;
 	if (specs.h == 1)
 		n = (unsigned short)n;
-	count = 0;
 	if (specs.hash == 1)
 	{
 		ft_putchar('0');
 		ft_putchar(x);
 		ret += 2;
 	}
-	while (count < specs.accuracy)
-	{
-		ft_putchar('0');
-		count++;
-		ret++;
-	}
+	ft_place_acc(specs.accuracy, &ret);
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		str = ft_uitoa_base(n, 16);
-		ret += ft_strlen(str);
-		if (x == 'x')
-			ft_putstr(ft_allow(str));
-		else
-			ft_putstr(str);
-		free(str);
-	}
+		ft_do_magic(x, &ret, n);
 	count = 0;
 	while (count < specs.width)
 	{

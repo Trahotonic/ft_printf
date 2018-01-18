@@ -1,8 +1,8 @@
 #include "../../includes/prlib.h"
 
-void	ft_print_uni(int n)
+void		ft_print_uni(int n)
 {
-	int	*array;
+	int		*array;
 	char	*bin;
 	int		size;
 	int		count;
@@ -25,8 +25,5 @@ void	ft_print_uni(int n)
 	}
 	count = 0;
 	while (count < size)
-	{
-		write(1, &array[count], 1);
-		count++;
-	}
+		write(1, &array[count++], 1);
 }

@@ -12,7 +12,7 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_chr_left(unsigned int c, t_specs specs, char uni)
+int			ft_place_chr_left(unsigned int c, t_specs specs, char uni)
 {
 	int		count;
 	int		ret;
@@ -22,11 +22,11 @@ int	ft_place_chr_left(unsigned int c, t_specs specs, char uni)
 	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 127)
 		ft_print_uni(c);
 	else
-		ft_putchar(c);
+		write(1, &c, 1);
 	ret++;
 	while (count < specs.width)
 	{
-		ft_putchar(' ');
+		write(1, " ", 1);
 		count++;
 		ret++;
 	}

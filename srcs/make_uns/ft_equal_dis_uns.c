@@ -12,9 +12,9 @@
 
 #include "../../includes/prlib.h"
 
-static int		ft_siz(unsigned long long n)
+static int	ft_siz(unsigned long long n)
 {
-	int m;
+	int		m;
 
 	m = 1;
 	while (n >= 10)
@@ -25,7 +25,7 @@ static int		ft_siz(unsigned long long n)
 	return (m);
 }
 
-void	ft_equal_dis_uns(t_specs *specs, unsigned long long n)
+void		ft_equal_dis_uns(t_specs *specs, unsigned long long n)
 {
 	if (specs->leftside == 1 || specs->acc_flag == 1)
 		specs->zero = 0;

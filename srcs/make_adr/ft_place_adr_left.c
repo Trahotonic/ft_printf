@@ -12,11 +12,20 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_adr_left(unsigned long long n, t_specs specs)
+static void	ft_do_magic(int *ret, unsigned long long n)
+{
+	char	*s;
+
+	s = ft_uitoa_base(n, 16);
+	*ret += ft_strlen(s);
+	ft_putstr(ft_allow(s));
+	free(s);
+}
+
+int			ft_place_adr_left(unsigned long long n, t_specs specs)
 {
 	int		count;
 	int		ret;
-	char	*str;
 
 	count = 0;
 	ret = 0;
@@ -30,12 +39,7 @@ int	ft_place_adr_left(unsigned long long n, t_specs specs)
 		ret++;
 	}
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		str = ft_uitoa_base(n, 16);
-		ret += ft_strlen(str);
-		ft_putstr(ft_allow(str));
-		free(str);
-	}
+		ft_do_magic(&ret, n);
 	count = 0;
 	while (count < specs.width)
 	{

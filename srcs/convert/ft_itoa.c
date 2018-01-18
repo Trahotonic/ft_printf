@@ -14,7 +14,7 @@
 
 static int	ft_size(long long n)
 {
-	int m;
+	int		m;
 
 	m = 1;
 	while (n >= 10)
@@ -39,10 +39,10 @@ static void	ft_filler(long long work, int m, int minus, char *ret)
 
 char		*ft_itoa(long long n)
 {
-	int				m;
-	int				minus;
-	long long		work;
-	char			*ret;
+	int			m;
+	int			minus;
+	long long	work;
+	char		*ret;
 
 	minus = 0;
 	if (n < 0)

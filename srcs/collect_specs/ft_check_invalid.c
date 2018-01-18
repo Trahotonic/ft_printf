@@ -16,7 +16,7 @@ int		ft_check_invalid(char *format)
 {
 	if (*format != '+' && *format != '-' && *format != '_' &&
 		*format != '#' && *format != ' ' && *format != '.' &&
-		!isdigit(*format) && *format != '*' && *format != 'l'
+		!ft_isdigit(*format) && *format != '*' && *format != 'l'
 		&& *format != 'h' && *format != 'z' && *format != 'j')
 		return (1);
 	return (0);

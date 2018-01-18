@@ -12,10 +12,20 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_str_left(char *str, t_specs specs)
+static void	ft_place_wid(t_specs specs, int count, int *ret)
 {
-	int	count;
-	int	ret;
+	while (count < specs.width)
+	{
+		write(1, " ", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_str_left(char *str, t_specs specs)
+{
+	int		count;
+	int		ret;
 
 	ret = 0;
 	if (str == NULL)
@@ -35,11 +45,6 @@ int	ft_place_str_left(char *str, t_specs specs)
 		ft_putstr(str);
 		ret += ft_strlen(str);
 	}
-	while (count < specs.width)
-	{
-		write(1, " ", 1);
-		count++;
-		ret++;
-	}
+	ft_place_wid(specs, count, &ret);
 	return (ret);
 }

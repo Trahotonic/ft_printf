@@ -12,71 +12,96 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_int_right(long long n, t_specs specs)
+static void	ft_plusominus1(long long n, t_specs specs, int *ret, char fill)
 {
 	int		count;
-	char	fill;
-	int		ret;
+
+	count = 0;
+	if (n < 0 && fill == '0')
+	{
+		write(1, "-", 1);
+		*ret += 1;
+	}
+	if (n >= 0 && specs.plus == 1 && fill == '0' &&
+		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	{
+		write(1, "+", 1);
+		*ret += 1;
+	}
+}
+
+static void	ft_plusominus2(long long n, t_specs specs, int *ret, char fill)
+{
+	int		count;
+
+	count = 0;
+	if (n < 0 && fill != '0')
+	{
+		write(1, "-", 1);
+		*ret += 1;
+	}
+	if (n >= 0 && specs.plus == 1 && fill != '0' &&
+		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	{
+		write(1, "+", 1);
+		*ret += 1;
+	}
+}
+
+static void	ft_shmatok(t_specs specs, int *ret, char fill , long long n)
+{
+	int		count;
+
+	count = 0;
+	ft_plusominus1(n, specs, ret, fill);
+	while (count < specs.width - specs.space)
+	{
+		write(1, &fill, 1);
+		count++;
+		*ret += 1;
+	}
+	ft_plusominus2(n, specs, ret, fill);
+	count = 0;
+	while (count < specs.accuracy)
+	{
+		write(1, "0", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+static void	ft_do_magic(long long n, int *ret)
+{
 	char	*str;
 
+	str = ft_itoa_base(n, 10);
+	ft_putstr(str);
+	*ret += ft_strlen(str);
+	free(str);
+}
+
+int			ft_place_int_right(long long n, t_specs specs)
+{
+	char	fill;
+	int		ret;
+
 	ret = 0;
-	str = NULL;
 	if(specs.hh == 1)
 		n = (signed char)n;
 	if (specs.h == 1)
 		n = (short)n;
-	count = 0;
 	fill = ' ';
 	if (specs.zero == 1)
 		fill = '0';
 	if (specs.space == 1)
 	{
-		ft_putchar(' ');
+		write(1, " ", 1);
 		ret++;
 	}
-	if (n < 0 && fill == '0')
-	{
-		ft_putchar('-');
-		ret++;
-	}
-	if (n >= 0 && specs.plus == 1 && fill == '0' &&
-		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		ft_putchar('+');
-		ret++;
-	}
-	while (count < specs.width - specs.space)
-	{
-		ft_putchar(fill);
-		count++;
-		ret++;
-	}
-	if (n < 0 && fill != '0')
-	{
-		ft_putchar('-');
-		ret++;
-	}
-	if (n >= 0 && specs.plus == 1 && fill != '0' &&
-		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		ft_putchar('+');
-		ret++;
-	}
-	count = 0;
-	while (count < specs.accuracy)
-	{
-		ft_putchar('0');
-		count++;
-		ret++;
-	}
+	ft_shmatok(specs, &ret, fill, n);
 	if (n < 0)
 		n = -n;
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		str = ft_itoa_base(n, 10);
-		ft_putstr(str);
-		ret += ft_strlen(str);
-		free(str);
-	}
+		ft_do_magic(n, &ret);
 	return (ret);
 }

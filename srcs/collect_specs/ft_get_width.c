@@ -23,7 +23,7 @@ char	*ft_get_width(char *format, t_specs *specs)
 	get = ft_smoker_atoi(format);
 	if (get != 0)
 		specs->width = get;
-	while (isdigit(*format))
+	while (ft_isdigit(*format))
 		format++;
 	format -= 1;
 	return (format);

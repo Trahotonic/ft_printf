@@ -12,7 +12,27 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_uns_right(unsigned long long n, t_specs specs)
+static void	ft_place_acc_wid(t_specs specs, char fill, int *ret)
+{
+	int		count;
+
+	count = 0;
+	while (count < specs.width - specs.space)
+	{
+		write(1, &fill, 1);
+		count++;
+		*ret += 1;
+	}
+	count = 0;
+	while (count < specs.accuracy)
+	{
+		write(1, "0", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_uns_right(unsigned long long n, t_specs specs)
 {
 	int		count;
 	char	fill;
@@ -29,19 +49,7 @@ int	ft_place_uns_right(unsigned long long n, t_specs specs)
 	fill = ' ';
 	if (specs.zero == 1)
 		fill = '0';
-	while (count < specs.width - specs.space)
-	{
-		ft_putchar(fill);
-		count++;
-		ret++;
-	}
-	count = 0;
-	while (count < specs.accuracy)
-	{
-		ft_putchar('0');
-		count++;
-		ret++;
-	}
+	ft_place_acc_wid(specs, fill, &ret);
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
 	{
 		str = ft_uitoa_base(n, 10);

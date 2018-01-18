@@ -12,54 +12,70 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_int_left(long long n, t_specs specs)
+static void	ft_plusominus(long long n, int *ret, t_specs specs)
+{
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		*ret += 1;
+	}
+	if (n >= 0 && specs.plus == 1 && !(specs.acc_flag == 1 &&
+		specs.accuracy == 0 && n == 0))
+	{	
+		write(1, "+", 1);
+		*ret += 1;
+	}
+}
+
+static void	ft_do_magic(long long n, int *ret)
+{
+	char	*str;
+
+	str = ft_itoa_base(n, 10);
+	ft_putstr(str);
+	*ret += ft_strlen(str);
+	free(str);
+}
+
+static void	ft_shmatok(t_specs specs, int *ret, long long n)
+{
+	int		count;
+
+	count = 0;
+	if (specs.space == 1)
+	{
+		write(1, " ", 1);
+		*ret += 1;
+	}
+	ft_plusominus(n, ret, specs);
+	while (count < specs.accuracy)
+	{
+		write(1, "0", 1);
+		count++;
+		*ret += 1;
+	}
+}
+
+int			ft_place_int_left(long long n, t_specs specs)
 {
 	int		count;
 	int		ret;
-	char	*str;
 
 	ret = 0;
-	str = NULL;
 	if (specs.h == 1)
 		n = (short)n;
 	if (specs.hh == 1)
 		n = (signed char)n;
 	count = 0;
-	if (specs.space == 1)
-	{
-		ft_putchar(' ');
-		ret++;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		ret++;
-	}
-	if (n >= 0 && specs.plus == 1 && !(specs.acc_flag == 1 &&
-		specs.accuracy == 0 && n == 0))
-	{	
-		ft_putchar('+');
-		ret++;
-	}
-	while (count < specs.accuracy)
-	{
-		ft_putchar('0');
-		count++;
-		ret++;
-	}
+	ft_shmatok(specs, &ret, n);
 	if (n < 0)
 		n = -n;
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
-	{
-		str = ft_itoa_base(n, 10);
-		ft_putstr(str);
-		ret += ft_strlen(str);
-		free(str);
-	}
+		ft_do_magic(n, &ret);
 	count = 0;
 	while (count < specs.width - specs.space)
 	{
-		ft_putchar(' ');
+		write(1, " ", 1);
 		count++;
 		ret++;
 	}

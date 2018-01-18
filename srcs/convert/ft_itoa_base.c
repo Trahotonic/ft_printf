@@ -23,6 +23,16 @@ typedef struct			s_pozor
 	unsigned long long	backup;
 }						t_pozor;
 
+static void	ft_add(t_pozor *vars, int base)
+{
+	while (vars->backup != 0)
+	{
+		vars->tmp[vars->ptr--] = vars->array[vars->backup % base];
+		vars->backup /= base;
+		vars->size++;
+	}
+}
+
 char	*ft_itoa_base(long long value, int base)
 {
 	t_pozor vars;
@@ -40,12 +50,7 @@ char	*ft_itoa_base(long long value, int base)
 	vars.array = "0123456789ABCDEF";
 	vars.size = 0;
 	vars.ptr = 59;
-	while (vars.backup != 0)
-	{
-		vars.tmp[vars.ptr--] = vars.array[vars.backup % base];
-		vars.backup /= base;
-		vars.size++;
-	}
+	ft_add(&vars, base);
 	vars.ptr++;
 	vars.ret = (char*)malloc(sizeof(char) * (vars.size + 1 + vars.minus));
 	vars.size = 0;

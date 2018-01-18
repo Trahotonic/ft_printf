@@ -12,39 +12,45 @@
 
 #include "../../includes/prlib.h"
 
-int	ft_place_uns_left(unsigned long long n, t_specs specs)
+static void	ft_do_magic(t_specs specs, int *ret, unsigned long long n)
 {
 	int		count;
-	int		ret;
 	char	*str;
 
 	str = NULL;
-	ret = 0;
-	if (specs.hh == 1)
-		n = (unsigned char)n;
-	if (specs.h == 1)
-		n = (unsigned short)n;
 	count = 0;
 	while (count < specs.accuracy)
 	{
-		ft_putchar('0');
+		write(1, "0", 1);
 		count++;
-		ret++;
+		*ret += 1;
 	}
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
 	{
 		str = ft_uitoa_base(n, 10);
 		ft_putstr(str);
-		ret += ft_strlen(str);
+		*ret += ft_strlen(str);
 		free(str);
 	}
+}
+
+int			ft_place_uns_left(unsigned long long n, t_specs specs)
+{
+	int		count;
+	int		ret;
+
+	ret = 0;
+	if (specs.hh == 1)
+		n = (unsigned char)n;
+	if (specs.h == 1)
+		n = (unsigned short)n;
+	ft_do_magic(specs, &ret, n);
 	count = 0;
 	while (count < specs.width - specs.space)
 	{
-		ft_putchar(' ');
+		write(1, " ", 1);
 		count++;
 		ret++;
 	}
 	return (ret);
 }
-

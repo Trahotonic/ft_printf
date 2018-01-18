@@ -12,7 +12,62 @@
 
 #include "../../includes/prlib.h"
 
-char	*ft_collect(char *format, t_specs *specs)
+static void	ft_forstar(va_list ptr, t_specs *specs)
+{
+	long	forstar;
+
+	forstar = va_arg(ptr, int);
+	if (forstar < 0)
+	{
+		forstar = -forstar;
+		specs->leftside = 1;
+	}
+	specs->width = forstar;
+}
+
+static char	*ft_for_l(char *format, t_specs *specs)
+{
+	specs->l = 1;
+	format++;
+	if (*format == 'l')
+	{
+		specs->ll = 1;
+		specs->l = 0;
+	}
+	format--;
+	return (format);
+}
+
+static char	*ft_for_h(char *format, t_specs *specs)
+{
+	specs->h = 1;
+	specs->hh = 0;
+	format++;
+	if (*format == 'h')
+	{
+		specs->hh = 1;
+		specs->h = 0;
+		format ++;
+	}
+	format--;
+	return (format);
+}
+
+static void	ft_for_rest(char *format, t_specs *specs)
+{
+	if (*format == '+')
+		specs->plus = 1;
+	else if (*format == ' ')
+		specs->space = 1;
+	else if (*format == '#')
+		specs->hash = 1;
+	else if (*format == 'z')
+		specs->z = 1;
+	else if (*format == 'j')
+		specs->j = 1;
+}
+
+char		*ft_collect(char *format, t_specs *specs, va_list ptr)
 {
 	while (*format != '\0' && *format != 'd' && *format != 'c'
 		&& *format != 's' && *format != 'x' && *format != 'X'
@@ -23,45 +78,17 @@ char	*ft_collect(char *format, t_specs *specs)
 			return (format);
 		if (*format == '-' && specs->leftside == 0)
 			specs->leftside = 1;
-		if (isdigit(*format))
+		else if (ft_isdigit(*format))
 			format = ft_get_width(format, specs);
-		if (*format == '.')
-			format = ft_check_acc(format, specs);
-		if (*format == '+')
-			specs->plus = 1;
-		if (*format == ' ')
-			specs->space = 1;
-		if (*format == '#')
-			specs->hash = 1;
-		if (*format == 'l')
-		{
-			specs->l = 1;
-			format++;
-			if (*format == 'l')
-			{
-				specs->ll = 1;
-				specs->l = 0;
-			}
-			format--;
-		}
-		if (*format == 'h')
-		{
-			specs->h = 1;
-			specs->hh = 0;
-			format++;
-			if (*format == 'h')
-			{
-				specs->hh = 1;
-				specs->h = 0;
-				format ++;
-			}
-			format--;
-		}
-		if (*format == 'z')
-			specs->z = 1;
-		if (*format == 'j')
-			specs->j = 1;
-
+		else if (*format == '.')
+			format = ft_check_acc(format, specs, ptr);
+		else if (*format == '*')
+			ft_forstar(ptr, specs);
+		else if (*format == 'l')
+			format = ft_for_l(format, specs);
+		else if (*format == 'h')
+			format = ft_for_h(format, specs);
+		ft_for_rest(format, specs);
 		format++;
 	}
 	return (format);

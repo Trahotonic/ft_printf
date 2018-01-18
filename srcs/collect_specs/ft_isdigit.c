@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pick_chr_type.c                                 :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 18:42:04 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/12 18:42:04 by rkyslyy          ###   ########.fr       */
+/*   Created: 2017/10/30 19:32:13 by rkyslyy           #+#    #+#             */
+/*   Updated: 2017/10/30 19:32:53 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/prlib.h"
-
-int		ft_pick_chr_type(t_specs specs, va_list ptr, char c)
+int	ft_isdigit(int c)
 {
-	int	x;
-
-	x = va_arg(ptr, int);
-	return (ft_print_chr(x, specs, c));
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

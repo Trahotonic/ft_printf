@@ -12,7 +12,7 @@
 
 #include "../../includes/prlib.h"
 
-void	ft_equal_dis_oct(t_specs *specs, unsigned long long n)
+void		ft_equal_dis_oct(t_specs *specs, unsigned long long n)
 {
 	char	*num;
 

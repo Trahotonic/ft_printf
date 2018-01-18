@@ -12,7 +12,7 @@
 
 #include "../../includes/prlib.h"
 
-static int ft_get_wchr_bytes(wchar_t *str)
+static int	ft_get_wchr_bytes(wchar_t *str)
 {
 	size_t	n;
 	int		len;
@@ -34,40 +34,46 @@ static int ft_get_wchr_bytes(wchar_t *str)
 	return (len);
 }
 
+static void	ft_for_acc(wchar_t *str, int *count, t_specs specs, int *ret)
+{
+	size_t	n;
+	int		tmp;
+
+	n = 0;
+	*count = 0;
+	while (*count < specs.accuracy)
+	{
+		tmp = 0;
+		if (str[n] <= 127)
+			tmp += 1;
+		else if (str[n] > 127 && str[n] <= 2047)
+			tmp += 2;
+		else if (str[n] > 2047 && str[n] <= 65535)
+			tmp += 3;
+		else
+			tmp += 4;
+		*count += tmp;
+		if (*count <= specs.accuracy)
+		{
+			ft_print_uni(str[n]);
+			*ret += tmp;
+		}
+		n++;
+	}
+}
+
 int	ft_place_ust_left(wchar_t *str, t_specs specs)
 {
 	int		count;
 	size_t	n;
 	int		ret;
-	int		tmp;
 	
 	if (str == NULL)
 		str = L"(null)";
 	ret = 0;
 	n = 0;
 	if (specs.acc_flag == 1)
-	{
-		count = 0;
-		while (count < specs.accuracy)
-		{
-			tmp = 0;
-			if (str[n] <= 127)
-				tmp += 1;
-			else if (str[n] > 127 && str[n] <= 2047)
-				tmp += 2;
-			else if (str[n] > 2047 && str[n] <= 65535)
-				tmp += 3;
-			else
-				tmp += 4;
-			count += tmp;
-			if (count <= specs.accuracy)
-			{
-				ft_print_uni(str[n]);
-				ret += tmp;
-			}
-			n++;
-		}
-	}
+		ft_for_acc(str, &count, specs, &ret);
 	else
 	{
 		ret += ft_get_wchr_bytes(str);

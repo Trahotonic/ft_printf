@@ -22,7 +22,7 @@ SOURCES =	./srcs/convert/ft_allow.c ./srcs/convert/ft_itoa.c ./srcs/convert/ft_g
 \
 			./srcs/strings/ft_strlen.c ./srcs/strings/ft_putchar.c ./srcs/strings/ft_putstr.c																										\
 \
-			./srcs/collect_specs/ft_peace_maker.c ./srcs/collect_specs/ft_get_width.c ./srcs/collect_specs/ft_check_acc.c ./srcs/collect_specs/ft_check_invalid.c ./srcs/collect_specs/ft_collect.c	\
+			./srcs/collect_specs/ft_isdigit.c ./srcs/collect_specs/ft_peace_maker.c ./srcs/collect_specs/ft_get_width.c ./srcs/collect_specs/ft_check_acc.c ./srcs/collect_specs/ft_check_invalid.c ./srcs/collect_specs/ft_collect.c	\
 \
 			./srcs/make_int/ft_pick_int_type.c ./srcs/make_int/ft_equal_dis_int.c ./srcs/make_int/ft_place_int_left.c ./srcs/make_int/ft_place_int_right.c ./srcs/make_int/ft_print_int.c			\
 \
@@ -48,7 +48,7 @@ OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_a
 \
 			./ft_strlen.o ./ft_putchar.o ./ft_putstr.o																\
 \
-			./ft_peace_maker.o ./ft_get_width.o ./ft_check_acc.o ./ft_check_invalid.o ./ft_collect.o				\
+			./ft_isdigit.o ./ft_peace_maker.o ./ft_get_width.o ./ft_check_acc.o ./ft_check_invalid.o ./ft_collect.o				\
 \
 			./ft_pick_int_type.o ./ft_equal_dis_int.o ./ft_place_int_left.o ./ft_place_int_right.o ./ft_print_int.o	\
 \

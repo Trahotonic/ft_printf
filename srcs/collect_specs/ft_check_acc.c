@@ -12,18 +12,34 @@
 
 #include "../../includes/prlib.h"
 
-char	*ft_check_acc(char *format, t_specs *specs)
+static char	*ft_forstar(char *format, t_specs *specs, int forstar, va_list ptr)
+{
+	forstar = va_arg(ptr, int);
+	if (forstar < 0)
+	{
+		specs->acc_flag = 0;
+		return (format);
+	}
+	specs->accuracy = forstar;
+	return (format);
+}
+
+char		*ft_check_acc(char *format, t_specs *specs, va_list ptr)
 {
 	int		acc;
+	long	forstar;
 
+	forstar = 0;
 	specs->acc_flag = 1;
 	format += 1;
 	acc = 0;
-	if (isdigit(*format))
+	if (*format == '*')
+		return (ft_forstar(format, specs, forstar, ptr));
+	if (ft_isdigit(*format))
 	{
 		acc = ft_smoker_atoi(format);
 		specs->accuracy = acc;
-		while (isdigit(*format))
+		while (ft_isdigit(*format))
 			format++;
 		format -= 1;
 		return (format);
