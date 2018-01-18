@@ -41,6 +41,7 @@ typedef struct	s_specs
 	int		j;
 }				t_specs;
 
+int				ft_isdigit(int c);
 char			*ft_itoa(long long n);
 char			*ft_allow(char *str);
 size_t			ft_strlen(char const *str);
@@ -57,9 +58,9 @@ void			ft_putstr(char const *s);
 int				ft_smoker_atoi(const char *nptr);
 t_specs			ft_peace_maker(void);
 char			*ft_get_width(char *format, t_specs *specs);
-char			*ft_check_acc(char *format, t_specs *specs);
+char			*ft_check_acc(char *format, t_specs *specs, va_list ptr);
 int				ft_check_invalid(char *format);
-char			*ft_collect(char *format, t_specs *specs);
+char			*ft_collect(char *format, t_specs *specs, va_list ptr);
 void			ft_equal_dis_uns(t_specs *specs, unsigned long long n);
 int				ft_pick_uns_type(t_specs specs, va_list ptr, char u);
 int				ft_place_uns_left(unsigned long long n, t_specs specs);
