@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 t_specs	ft_peace_maker(void)
 {

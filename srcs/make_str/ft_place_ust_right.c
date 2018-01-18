@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 static int ft_get_wchr_bytes(wchar_t *str)
 {
@@ -42,6 +42,8 @@ int	ft_place_ust_right(wchar_t *str, t_specs specs)
 	int		tmp;
 	char	fill;
 
+	if (str == NULL)
+		str = L"(null)";
 	count = 0;
 	ret = 0;
 	n = 0;
@@ -71,7 +73,10 @@ int	ft_place_ust_right(wchar_t *str, t_specs specs)
 			count += tmp;
 			if (count <= specs.accuracy)
 			{
-				ft_print_uni(str[n]);
+				if (str[n] > 127)
+					ft_print_uni(str[n]);
+				else
+					write(1, &str[n], 1);
 				ret += tmp;
 			}
 			n++;

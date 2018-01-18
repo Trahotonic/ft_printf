@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 void	ft_putstr(char const *s)
 {

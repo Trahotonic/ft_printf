@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 int	ft_place_str_left(char *str, t_specs specs)
 {
@@ -25,7 +25,7 @@ int	ft_place_str_left(char *str, t_specs specs)
 	{
 		while (count < specs.accuracy && str[count] != '\0')
 		{
-			ft_putchar(str[count++]);
+			write(1, &str[count++], 1);
 			ret++;
 		}
 		count = 0;
@@ -37,7 +37,7 @@ int	ft_place_str_left(char *str, t_specs specs)
 	}
 	while (count < specs.width)
 	{
-		ft_putchar(' ');
+		write(1, " ", 1);
 		count++;
 		ret++;
 	}

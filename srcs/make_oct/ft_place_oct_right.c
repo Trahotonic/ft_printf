@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 int	ft_place_oct_right(unsigned long long n, t_specs specs)
 {
@@ -29,7 +29,7 @@ int	ft_place_oct_right(unsigned long long n, t_specs specs)
 	fill = ' ';
 	if (specs.zero == 1)
 		fill = '0';
-	if (fill == '0' && specs.hash == 1 && n != 0)
+	if (fill == '0' && specs.hash == 1)
 	{
 		ft_putchar('0');
 		ret++;
@@ -41,7 +41,7 @@ int	ft_place_oct_right(unsigned long long n, t_specs specs)
 		ret++;
 	}
 	count = 0;
-	if (fill != '0' && specs.hash == 1 && n != 0)
+	if (fill != '0' && specs.hash == 1)
 	{
 		ft_putchar('0');
 		ret++;

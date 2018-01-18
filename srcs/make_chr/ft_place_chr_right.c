@@ -10,7 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
+
+static int	ft_check_size(unsigned int c)
+{
+	if (c <= 127)
+		return (1);
+	else if (c > 127 && c <= 2047)
+		return (2);
+	else if (c > 2047 && c <= 65535)
+		return (3);
+	else
+		return (4);
+}
 
 int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 {
@@ -29,10 +41,15 @@ int	ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 		count++;
 		ret++;
 	}
-	if (uni == 'C' && MB_CUR_MAX != 1 && c > 127)
+	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 127)
+	{
 		ft_print_uni(c);
+		ret += ft_check_size(c);
+	}
 	else
+	{
 		ft_putchar(c);
-	ret++;
+		ret++;
+	}
 	return (ret);
 }

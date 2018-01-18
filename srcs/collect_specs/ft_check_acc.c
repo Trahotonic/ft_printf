@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 char	*ft_check_acc(char *format, t_specs *specs)
 {
@@ -28,6 +28,7 @@ char	*ft_check_acc(char *format, t_specs *specs)
 		format -= 1;
 		return (format);
 	}
+	specs->accuracy = acc;
 	format -= 1;
 	return (format);
 }

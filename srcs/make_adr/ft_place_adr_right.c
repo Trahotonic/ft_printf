@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 int	ft_place_adr_right(unsigned long long n, t_specs specs)
 {
@@ -50,9 +50,12 @@ int	ft_place_adr_right(unsigned long long n, t_specs specs)
 		count++;
 		ret++;
 	}
-	str = ft_uitoa_base(n, 16);
-	ret += ft_strlen(str);
-	ft_putstr(ft_allow(str));
-	free(str);
+	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	{
+		str = ft_uitoa_base(n, 16);
+		ret += ft_strlen(str);
+		ft_putstr(ft_allow(str));
+		free(str);
+	}
 	return (ret);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 static void	ft_silence(t_specs *specs)
 {
@@ -50,7 +50,10 @@ static void	ft_king_of_the_hill(t_specs *specs)
 int			ft_pick_int_type(t_specs specs, va_list ptr, char d)
 {
 	if (d == 'D')
+	{
+		ft_silence(&specs);
 		return (ft_print_int(va_arg(ptr, long long), specs));
+	}
 	ft_king_of_the_hill(&specs);
 	if (specs.l == 1)
 		return (ft_print_int(va_arg(ptr, long), specs));

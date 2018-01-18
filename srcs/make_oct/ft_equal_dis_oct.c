@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 void	ft_equal_dis_oct(t_specs *specs, unsigned long long n)
 {
@@ -21,7 +21,9 @@ void	ft_equal_dis_oct(t_specs *specs, unsigned long long n)
 	num = ft_itoa_base(n, 8);
 	if (specs->plus == 1)
 		specs->plus = 0;
-	specs->accuracy -= ft_strlen(num);
+	if (n == 0 && specs->acc_flag == 0)
+		specs->hash = 0;
+	specs->accuracy -= ft_strlen(num) + specs->hash;
 	if (specs->accuracy < 0)
 		specs->accuracy = 0;
 	if (!(specs->acc_flag == 1 && specs->accuracy == 0 && n == 0))

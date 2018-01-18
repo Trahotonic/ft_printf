@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-HEADER = ./srcs/prlib.h
+HEADER = ./includes/prlib.h
 
 OPTIONS = -c -I $(HEADER)
 

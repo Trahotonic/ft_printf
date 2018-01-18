@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 void	ft_equal_dis_hex(t_specs *specs, unsigned long long n)
 {

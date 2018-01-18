@@ -1,4 +1,4 @@
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 static int	ft_check_x(char *str)
 {

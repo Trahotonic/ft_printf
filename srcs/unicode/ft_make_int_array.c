@@ -1,4 +1,4 @@
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 int		*ft_make_int_array(char **list, int size)
 {

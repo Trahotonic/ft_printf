@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 static int ft_get_wchr_bytes(wchar_t *str)
 {
@@ -41,6 +41,8 @@ int	ft_place_ust_left(wchar_t *str, t_specs specs)
 	int		ret;
 	int		tmp;
 	
+	if (str == NULL)
+		str = L"(null)";
 	ret = 0;
 	n = 0;
 	if (specs.acc_flag == 1)

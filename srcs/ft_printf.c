@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "prlib.h"
+#include "../includes/prlib.h"
 
 static int		ft_check_SC(char *format)
 {
@@ -31,9 +31,26 @@ static int		ft_check_SC(char *format)
 	return (0);
 }
 
+static void			ft_put_inval_width(int width, int zero)
+{
+	int		n;
+	char	fill;
+
+	n = 0;
+	fill = ' ';
+	if (zero == 1)
+		fill = '0';
+	while (n < width - 1)
+	{
+		write(1, &fill, 1);
+		n++;
+	}
+}
+
 int		ft_printf(char *format, ...)
 {
 	int		ret;
+	int		flag;
 	t_specs	specs;
 
 	ret = 0;
@@ -42,6 +59,7 @@ int		ft_printf(char *format, ...)
 	va_start(ptr, format);
 	while (*format != '\0')
 	{
+		flag = 0;
 		if (ft_check_SC(format))
 			break ;
 		if (*format == '%')
@@ -87,16 +105,31 @@ int		ft_printf(char *format, ...)
 				ret += ft_pick_chr_type(specs, ptr, *format);
 				format++;
 			}
+			else
+			{
+				flag = 1;
+				if (*format != '\0')
+				{
+					if (specs.width > 1 && specs.leftside == 0)
+						ft_put_inval_width(specs.width, specs.zero);
+					ft_putchar(*format);
+					if (specs.width > 1 && specs.leftside == 1)
+						ft_put_inval_width(specs.width, specs.zero);
+					ret += 1;
+					if (specs.width > 0)
+						ret += specs.width - 1;
+					format++;
+				}
+			}
 			specs = ft_peace_maker();
 		}
-		if (*format != '%' && *format != '\0')
+		if (*format != '%' && *format != '\0' && flag == 0)
 		{
 			ft_putchar(*format);
-			ret++;
+			ret += 1;
 			format++;
 		}
 	}
 	va_end(ptr);
-	// printf("ptr closed\n");
 	return (ret);
 }

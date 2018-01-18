@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../prlib.h"
+#include "../../includes/prlib.h"
 
 int	ft_place_uns_left(unsigned long long n, t_specs specs)
 {
@@ -31,10 +31,13 @@ int	ft_place_uns_left(unsigned long long n, t_specs specs)
 		count++;
 		ret++;
 	}
-	str = ft_uitoa_base(n, 10);
-	ft_putstr(str);
-	ret += ft_strlen(str);
-	free(str);
+	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	{
+		str = ft_uitoa_base(n, 10);
+		ft_putstr(str);
+		ret += ft_strlen(str);
+		free(str);
+	}
 	count = 0;
 	while (count < specs.width - specs.space)
 	{
