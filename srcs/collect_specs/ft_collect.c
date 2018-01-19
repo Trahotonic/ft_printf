@@ -47,7 +47,7 @@ static char	*ft_for_h(char *format, t_specs *specs)
 	{
 		specs->hh = 1;
 		specs->h = 0;
-		format ++;
+		format++;
 	}
 	format--;
 	return (format);

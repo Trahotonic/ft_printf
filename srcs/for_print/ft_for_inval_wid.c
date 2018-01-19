@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_for_inval_wid.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/10 16:42:37 by rkyslyy           #+#    #+#             */
-/*   Updated: 2018/01/10 16:42:39 by rkyslyy          ###   ########.fr       */
+/*   Created: 2018/01/19 12:49:24 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/19 12:49:25 by rkyslyy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include "./srcs/prlib.h"
-#include <locale.h>
+#include "../../includes/prlib.h"
 
-int		main()
+int	ft_for_inval_wid(char *format, t_specs specs, int ret)
 {
-	setlocale(LC_ALL, "");
-
-	ft_printf("mine: |%-40S\n", L"машина");
-	   printf("orig: |%-40S\n", L"машина");
-	return (0);
+	if (specs.width > 1 && specs.leftside == 0)
+		ft_put_inval_width(specs.width, specs.zero);
+	write(1, &*format, 1);
+	if (specs.width > 1 && specs.leftside == 1)
+		ft_put_inval_width(specs.width, specs.zero);
+	ret += 1;
+	if (specs.width > 0)
+		ret += specs.width - 1;
+	return (ret);
 }

@@ -20,4 +20,3 @@ int		ft_print_uns(unsigned long long n, t_specs specs)
 	else
 		return (ft_place_uns_right(n, specs));
 }
-

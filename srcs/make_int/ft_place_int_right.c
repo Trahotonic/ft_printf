@@ -48,7 +48,7 @@ static void	ft_plusominus2(long long n, t_specs specs, int *ret, char fill)
 	}
 }
 
-static void	ft_shmatok(t_specs specs, int *ret, char fill , long long n)
+static void	ft_shmatok(t_specs specs, int *ret, char fill, long long n)
 {
 	int		count;
 
@@ -86,7 +86,7 @@ int			ft_place_int_right(long long n, t_specs specs)
 	int		ret;
 
 	ret = 0;
-	if(specs.hh == 1)
+	if (specs.hh == 1)
 		n = (signed char)n;
 	if (specs.h == 1)
 		n = (short)n;

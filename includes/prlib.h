@@ -37,9 +37,19 @@ typedef struct	s_specs
 	int		h;
 	int		hh;
 	int		z;
-	int		L;
 	int		j;
 }				t_specs;
+
+typedef struct	s_pozor
+{
+	char				*array;
+	char				tmp[60];
+	char				*ret;
+	int					size;
+	int					ptr;
+	int					minus;
+	unsigned long long	backup;
+}				t_pozor;
 
 int				ft_isdigit(int c);
 char			*ft_itoa(long long n);
@@ -85,7 +95,7 @@ void			ft_equal_dis_adr(t_specs *specs, unsigned long long n);
 int				ft_place_adr_left(unsigned long long n, t_specs specs);
 int				ft_place_adr_right(unsigned long long n, t_specs specs);
 int				ft_print_adr(unsigned long long n, t_specs specs);
-void			ft_equal_dis_chr(t_specs *specs, unsigned int);
+void			ft_equal_dis_chr(t_specs *specs, unsigned int c);
 int				ft_pick_chr_type(t_specs specs, va_list ptr, char c);
 int				ft_place_chr_left(unsigned int c, t_specs specs, char uni);
 int				ft_place_chr_right(unsigned int c, t_specs specs, char uni);
@@ -104,6 +114,10 @@ void			ft_equal_dis_per(t_specs *specs);
 int				ft_place_per_left(t_specs specs);
 int				ft_place_per_right(t_specs specs);
 int				ft_print_per(t_specs specs);
+int				ft_check_sc(char *format);
+int				ft_for_inval_wid(char *format, t_specs specs, int ret);
+int				ft_pick_func(char c, t_specs specs, va_list ptr);
+void			ft_put_inval_width(int width, int zero);
 int				ft_printf(char *format, ...);
 
 #endif

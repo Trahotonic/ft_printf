@@ -38,11 +38,11 @@ SOURCES =	./srcs/convert/ft_allow.c ./srcs/convert/ft_itoa.c ./srcs/convert/ft_g
 \
 			./srcs/make_str/ft_pick_str_type.c ./srcs/make_str/ft_equal_dis_str.c ./srcs/make_str/ft_place_str_left.c ./srcs/make_str/ft_place_str_right.c ./srcs/make_str/ft_print_str.c ./srcs/make_str/ft_equal_unistr.c ./srcs/make_str/ft_place_uni.c ./srcs/make_str/ft_place_ust_left.c ./srcs/make_str/ft_place_ust_right.c ./srcs/make_str/ft_print_unistr.c \
 \
-			./srcs/make_per/ft_equal_dis_per.c ./srcs/make_per/ft_place_per_left.c ./srcs/make_per/ft_place_per_right.c ./srcs/make_per/ft_print_per.c													\
+			./srcs/make_per/ft_equal_dis_per.c ./srcs/make_per/ft_place_per_left.c ./srcs/make_per/ft_place_per_right.c ./srcs/make_per/ft_print_per.c												\
 \
 			./srcs/unicode/ft_btoi.c ./srcs/unicode/ft_create_mask.c ./srcs/unicode/ft_make_do.c ./srcs/unicode/ft_make_int_array.c ./srcs/unicode/ft_print_uni.c									\
 \
-			./srcs/ft_printf.c
+			./srcs/for_print/ft_check_sc.c ./srcs/for_print/ft_for_inval_wid.c ./srcs/for_print/ft_pick_func.c ./srcs/for_print/ft_put_inval_width.c ./srcs/ft_printf.c
 
 OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_atoi.o ./ft_uitoa_base.o			\
 \
@@ -68,7 +68,7 @@ OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_a
 \
 			./ft_btoi.o ./ft_create_mask.o ./ft_make_do.o ./ft_make_int_array.o ./ft_print_uni.o					\
 \
-			./ft_printf.o
+			./ft_check_sc.o ./ft_for_inval_wid.o ./ft_pick_func.o ./ft_put_inval_width.o ./ft_printf.o
 
 all: $(NAME)
 

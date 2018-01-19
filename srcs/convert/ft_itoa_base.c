@@ -12,17 +12,6 @@
 
 #include "../../includes/prlib.h"
 
-typedef struct			s_pozor
-{
-	char				*array;
-	char				tmp[60];
-	char				*ret;
-	int					size;
-	int					ptr;
-	int					minus;
-	unsigned long long	backup;
-}						t_pozor;
-
 static void	ft_add(t_pozor *vars, int base)
 {
 	while (vars->backup != 0)
@@ -33,7 +22,7 @@ static void	ft_add(t_pozor *vars, int base)
 	}
 }
 
-char	*ft_itoa_base(long long value, int base)
+char		*ft_itoa_base(long long value, int base)
 {
 	t_pozor vars;
 

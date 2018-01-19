@@ -77,7 +77,7 @@ int			ft_place_hex_right(unsigned long long n, t_specs specs, char x)
 		ft_place_ox(&ret, x);
 	ft_place_wid(specs, &ret, fill);
 	if (fill != '0' && specs.hash == 1)
-	ft_place_ox(&ret, x);
+		ft_place_ox(&ret, x);
 	ft_place_acc(specs, &ret);
 	if (!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
 		ft_do_magic(x, &ret, n);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_create_mask.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/19 13:14:05 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/19 13:14:05 by rkyslyy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/prlib.h"
 
 static char	*ft_create_first(char *first, int size)
@@ -20,7 +32,7 @@ static char	*ft_create_first(char *first, int size)
 	return (first);
 }
 
-static char *ft_create_other(char *other)
+static char	*ft_create_other(char *other)
 {
 	int count;
 
@@ -37,10 +49,10 @@ static char *ft_create_other(char *other)
 	return (other);
 }
 
-char	**ft_create_mask(int size)
+char		**ft_create_mask(int size)
 {
-	char **list;
-	int	count;
+	char	**list;
+	int		count;
 
 	list = (char**)malloc(sizeof(char*) * size + 1);
 	count = 0;

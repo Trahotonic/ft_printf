@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_make_do.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/19 13:14:34 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/19 13:14:35 by rkyslyy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/prlib.h"
 
 static int	ft_check_x(char *str)
@@ -40,11 +52,10 @@ static void	ft_x_to_zero(char *bin)
 	}
 }
 
-char	**ft_make_do(char *bin, char **arr, int pointer)
+char		**ft_make_do(char *bin, char **arr, int pointer)
 {
 	size_t	n;
 	int		ptr;
-
 
 	ptr = pointer;
 	n = ft_strlen(bin);

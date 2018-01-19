@@ -44,7 +44,7 @@ static void	ft_place_acc(t_specs specs, int *ret)
 
 int			ft_place_adr_right(unsigned long long n, t_specs specs)
 {
-	int 	count;
+	int		count;
 	char	fill;
 	int		ret;
 

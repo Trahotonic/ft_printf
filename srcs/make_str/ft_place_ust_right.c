@@ -43,29 +43,29 @@ static void	ft_permis(wchar_t c, int *ret, int tmp)
 	*ret += tmp;
 }
 
-static void ft_for_acc(int *count, t_specs specs, wchar_t *str, int *ret)
+static void	ft_for_acc(int *count, t_specs specs, wchar_t *str, int *ret)
 {
 	size_t	n;
 	int		tmp;
 
 	n = 0;
 	*count = 0;
-		while (*count < specs.accuracy)
-		{
-			tmp = 0;
-			if (str[n] <= 127)
-				tmp += 1;
-			else if (str[n] > 127 && str[n] <= 2047)
-				tmp += 2;
-			else if (str[n] > 2047 && str[n] <= 65535)
-				tmp += 3;
-			else
-				tmp += 4;
-			*count += tmp;
-			if (*count <= specs.accuracy)
+	while (*count < specs.accuracy)
+	{
+		tmp = 0;
+		if (str[n] <= 127)
+			tmp += 1;
+		else if (str[n] > 127 && str[n] <= 2047)
+			tmp += 2;
+		else if (str[n] > 2047 && str[n] <= 65535)
+			tmp += 3;
+		else
+			tmp += 4;
+		*count += tmp;
+		if (*count <= specs.accuracy)
 			ft_permis(str[n], ret, tmp);
-			n++;
-		}
+		n++;
+	}
 }
 
 int			ft_place_ust_right(wchar_t *str, t_specs specs)

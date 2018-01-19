@@ -49,7 +49,7 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-int	ft_pick_oct_type(t_specs specs, va_list ptr, char o)
+int			ft_pick_oct_type(t_specs specs, va_list ptr, char o)
 {
 	if (o == 'O')
 	{

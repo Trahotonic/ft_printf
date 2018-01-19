@@ -36,4 +36,3 @@ void		ft_equal_dis_uns(t_specs *specs, unsigned long long n)
 	if (specs->plus == 1 && specs->space == 1)
 		specs->space = 0;
 }
-

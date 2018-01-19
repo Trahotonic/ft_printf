@@ -62,12 +62,12 @@ static void	ft_for_acc(wchar_t *str, int *count, t_specs specs, int *ret)
 	}
 }
 
-int	ft_place_ust_left(wchar_t *str, t_specs specs)
+int			ft_place_ust_left(wchar_t *str, t_specs specs)
 {
 	int		count;
 	size_t	n;
 	int		ret;
-	
+
 	if (str == NULL)
 		str = L"(null)";
 	ret = 0;

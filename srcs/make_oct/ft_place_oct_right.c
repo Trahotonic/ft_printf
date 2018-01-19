@@ -49,7 +49,7 @@ static void	ft_shmatok(t_specs specs, char fill, int *ret)
 
 int			ft_place_oct_right(unsigned long long n, t_specs specs)
 {
-	int 	count;
+	int		count;
 	int		ret;
 	char	fill;
 	char	*str;

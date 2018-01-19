@@ -49,7 +49,7 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	}
 }
 
-int		ft_pick_uns_type(t_specs specs, va_list ptr, char u)
+int			ft_pick_uns_type(t_specs specs, va_list ptr, char u)
 {
 	if (u == 'U')
 	{
@@ -72,4 +72,3 @@ int		ft_pick_uns_type(t_specs specs, va_list ptr, char u)
 	else
 		return (ft_print_uns(va_arg(ptr, unsigned int), specs));
 }
-

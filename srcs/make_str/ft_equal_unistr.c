@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_equal_unistr.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkyslyy <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/19 13:06:31 by rkyslyy           #+#    #+#             */
+/*   Updated: 2018/01/19 13:06:31 by rkyslyy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/prlib.h"
 
 static int		ft_get_wchr_bytes(wchar_t *str)
@@ -49,7 +61,7 @@ static int		ft_get_acc_size(wchar_t *str, int accuracy)
 	return (ret);
 }
 
-static wchar_t *ft_check(wchar_t *str, t_specs *specs)
+static wchar_t	*ft_check(wchar_t *str, t_specs *specs)
 {
 	if (str == NULL)
 		str = L"(null)";

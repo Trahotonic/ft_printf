@@ -15,6 +15,7 @@
 t_specs	ft_peace_maker(void)
 {
 	t_specs specs;
+
 	specs.plus = 0;
 	specs.leftside = 0;
 	specs.width = 0;
@@ -30,7 +31,6 @@ t_specs	ft_peace_maker(void)
 	specs.h = 0;
 	specs.h = 0;
 	specs.z = 0;
-	specs.L = 0;
 	specs.j = 0;
 	return (specs);
 }
