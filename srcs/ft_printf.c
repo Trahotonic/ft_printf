@@ -65,8 +65,8 @@ int					ft_printf(char *format, ...)
 	while (*format != '\0')
 	{
 		flag = 0;
-		if (ft_check_sc(format))
-			break ;
+		// if (ft_check_sc(format))
+		// 	break ;
 		if (*format == '%')
 		{
 			format = ft_collect(format + 1, &specs, ptr);
