@@ -34,6 +34,7 @@ static void	ft_king_of_the_hill(t_specs *specs)
 	{
 		specs->h = 0;
 		specs->hh = 0;
+		specs->l = 0;
 	}
 	if (specs->j == 1)
 	{
@@ -52,8 +53,8 @@ static void	ft_king_of_the_hill(t_specs *specs)
 int			ft_pick_str_type(t_specs specs, va_list ptr, char s)
 {
 	ft_king_of_the_hill(&specs);
-	if ((s == 'S' || specs.l == 1) && MB_CUR_MAX != 1)
-		return (ft_print_unistr(va_arg(ptr, wchar_t*), specs));
+	if ((s == 'S' || specs.l == 1) && (MB_CUR_MAX != 1 || specs.permis == 1))
+		return (ft_print_unistr(specs.str, specs));
 	else
 		return (ft_print_str(va_arg(ptr, char*), specs));
 }

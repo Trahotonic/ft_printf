@@ -19,7 +19,7 @@ int			ft_place_chr_left(unsigned int c, t_specs specs, char uni)
 
 	count = 0;
 	ret = 0;
-	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 127)
+	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 255)
 		ft_print_uni(c);
 	else
 		write(1, &c, 1);

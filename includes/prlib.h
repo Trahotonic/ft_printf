@@ -38,6 +38,10 @@ typedef struct	s_specs
 	int		hh;
 	int		z;
 	int		j;
+	wchar_t c;
+	wchar_t	*str;
+	int		permis;
+	int		flag;
 }				t_specs;
 
 typedef struct	s_pozor
@@ -51,6 +55,7 @@ typedef struct	s_pozor
 	unsigned long long	backup;
 }				t_pozor;
 
+int				ft_break(va_list ptr, int ret);
 int				ft_isdigit(int c);
 char			*ft_itoa(long long n);
 char			*ft_allow(char *str);
@@ -114,7 +119,7 @@ void			ft_equal_dis_per(t_specs *specs);
 int				ft_place_per_left(t_specs specs);
 int				ft_place_per_right(t_specs specs);
 int				ft_print_per(t_specs specs);
-int				ft_check_sc(char *format);
+int				ft_check_sc(char *format, t_specs *specs, va_list ptr);
 int				ft_for_inval_wid(char *format, t_specs specs, int ret);
 int				ft_pick_func(char c, t_specs specs, va_list ptr);
 void			ft_put_inval_width(int width, int zero);

@@ -42,7 +42,7 @@ SOURCES =	./srcs/convert/ft_allow.c ./srcs/convert/ft_itoa.c ./srcs/convert/ft_g
 \
 			./srcs/unicode/ft_btoi.c ./srcs/unicode/ft_create_mask.c ./srcs/unicode/ft_make_do.c ./srcs/unicode/ft_make_int_array.c ./srcs/unicode/ft_print_uni.c									\
 \
-			./srcs/for_print/ft_check_sc.c ./srcs/for_print/ft_for_inval_wid.c ./srcs/for_print/ft_pick_func.c ./srcs/for_print/ft_put_inval_width.c ./srcs/ft_printf.c
+			./srcs/for_print/ft_break.c ./srcs/for_print/ft_check_sc.c ./srcs/for_print/ft_for_inval_wid.c ./srcs/for_print/ft_pick_func.c ./srcs/for_print/ft_put_inval_width.c ./srcs/ft_printf.c
 
 OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_atoi.o ./ft_uitoa_base.o			\
 \
@@ -68,7 +68,7 @@ OBJECTS =	./ft_allow.o ./ft_itoa.o ./ft_go_zero.o ./ft_itoa_base.o ./ft_smoker_a
 \
 			./ft_btoi.o ./ft_create_mask.o ./ft_make_do.o ./ft_make_int_array.o ./ft_print_uni.o					\
 \
-			./ft_check_sc.o ./ft_for_inval_wid.o ./ft_pick_func.o ./ft_put_inval_width.o ./ft_printf.o
+			./ft_break.o ./ft_check_sc.o ./ft_for_inval_wid.o ./ft_pick_func.o ./ft_put_inval_width.o ./ft_printf.o
 
 all: $(NAME)
 

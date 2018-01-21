@@ -49,7 +49,7 @@ int			ft_place_chr_right(unsigned int c, t_specs specs, char uni)
 	if (specs.zero == 1)
 		fill = '0';
 	ft_place_wid(specs, fill, &ret);
-	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 127)
+	if ((uni == 'C' || specs.l == 1) && MB_CUR_MAX != 1 && c > 255)
 	{
 		ft_print_uni(c);
 		ret += ft_check_size(c);

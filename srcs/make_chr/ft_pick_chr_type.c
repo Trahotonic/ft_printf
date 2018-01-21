@@ -16,6 +16,9 @@ int		ft_pick_chr_type(t_specs specs, va_list ptr, char c)
 {
 	int	x;
 
-	x = va_arg(ptr, int);
+	if (c == 'C' || (c == 'c' && specs.l == 1))
+		x = specs.c;
+	else
+		x = va_arg(ptr, int);
 	return (ft_print_chr(x, specs, c));
 }

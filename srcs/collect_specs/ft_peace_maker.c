@@ -29,8 +29,12 @@ t_specs	ft_peace_maker(void)
 	specs.l = 0;
 	specs.ll = 0;
 	specs.h = 0;
-	specs.h = 0;
+	specs.hh = 0;
 	specs.z = 0;
 	specs.j = 0;
+	specs.c = 0;
+	specs.str = NULL;
+	specs.permis = 0;
+	specs.flag = 0;
 	return (specs);
 }

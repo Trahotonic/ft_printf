@@ -55,28 +55,28 @@ static void			*ft_for_valid(char *f, int *ret, t_specs sp, va_list ptr)
 int					ft_printf(char *format, ...)
 {
 	int		ret;
-	int		flag;
 	t_specs	specs;
 	va_list	(ptr);
 
 	ret = 0;
 	specs = ft_peace_maker();
 	va_start(ptr, format);
+	if (ft_check_sc(format, &specs, ptr))
+		return (ft_break(ptr, ret));
 	while (*format != '\0')
 	{
-		flag = 0;
+		specs.flag = 0;
 		if (*format == '%')
 		{
 			format = ft_collect(format + 1, &specs, ptr);
 			if (ft_check_valid_sp(*format))
 				format = ft_for_valid(format, &ret, specs, ptr);
 			else
-				format = ft_do_inval(format, &ret, &flag, specs);
-			if (ft_check_sc(format))
+				format = ft_do_inval(format, &ret, &specs.flag, specs);
+			if (ft_check_sc(format, &specs, ptr))
 				break ;
 		}
-		format = ft_lil_shit(format, &ret, flag);
+		format = ft_lil_shit(format, &ret, specs.flag);
 	}
-	va_end(ptr);
-	return (ret);
+	return (ft_break(ptr, ret));
 }
