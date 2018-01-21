@@ -36,7 +36,7 @@ static int	ft_get_wchr_bytes(wchar_t *str)
 
 static void	ft_permis(wchar_t c, int *ret, int tmp)
 {
-	if (c > 127)
+	if (c > 256)
 		ft_print_uni(c);
 	else
 		write(1, &c, 1);
@@ -68,6 +68,21 @@ static void	ft_for_acc(int *count, t_specs specs, wchar_t *str, int *ret)
 	}
 }
 
+static void	ft_do_magic(int *ret, wchar_t *str)
+{
+	size_t	count;
+
+	count = 0;
+	*ret += ft_get_wchr_bytes(str);
+	if (MB_CUR_MAX != 1)
+		ft_place_uni(str);
+	else
+	{
+		while (str[count] != '\0')
+			write(1, &str[count++], 1);
+	}
+}
+
 int			ft_place_ust_right(wchar_t *str, t_specs specs)
 {
 	int		count;
@@ -90,9 +105,6 @@ int			ft_place_ust_right(wchar_t *str, t_specs specs)
 	if (specs.acc_flag == 1)
 		ft_for_acc(&count, specs, str, &ret);
 	else
-	{
-		ret += ft_get_wchr_bytes(str);
-		ft_place_uni(str);
-	}
+	ft_do_magic(&ret, str);
 	return (ret);
 }

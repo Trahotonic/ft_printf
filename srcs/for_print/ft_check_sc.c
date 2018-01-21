@@ -29,7 +29,7 @@ static int	ft_shmatok(va_list ptr, char *format, int l, t_specs *specs)
 		specs->str = va_arg(ptr, wchar_t*);
 		while (specs->str != NULL && specs->str[n] != '\0')
 		{
-			if (specs->str[n] > 127 && MB_CUR_MAX == 1)
+			if (specs->str[n] > 256 && MB_CUR_MAX == 1)
 				return (1);
 			n++;
 		}
