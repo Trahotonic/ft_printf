@@ -96,7 +96,7 @@ int			ft_place_ust_left(wchar_t *str, t_specs specs)
 	if (specs.acc_flag == 1)
 		ft_for_acc(str, &count, specs, &ret);
 	else
-	ft_do_magic(&ret, str);
+		ft_do_magic(&ret, str);
 	count = 0;
 	while (count < specs.width)
 	{

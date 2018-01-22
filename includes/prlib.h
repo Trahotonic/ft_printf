@@ -13,12 +13,10 @@
 #ifndef PRLIB_H
 # define PRLIB_H
 
-# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <ctype.h>
-# include <locale.h>
+# include <stdio.h>
 
 typedef struct	s_specs
 {

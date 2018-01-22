@@ -19,8 +19,7 @@ static void	ft_plusominus(long long n, int *ret, t_specs specs)
 		write(1, "-", 1);
 		*ret += 1;
 	}
-	if (n >= 0 && specs.plus == 1 && !(specs.acc_flag == 1 &&
-		specs.accuracy == 0 && n == 0))
+	if (n >= 0 && specs.plus == 1)
 	{
 		write(1, "+", 1);
 		*ret += 1;

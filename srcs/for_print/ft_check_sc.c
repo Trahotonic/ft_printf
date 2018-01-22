@@ -50,13 +50,14 @@ int			ft_check_sc(char *format, t_specs *specs, va_list ptr)
 		if (*format == '%')
 		{
 			format++;
-			while (!ft_check_invalid(format) && *format != 's' && *format != 'c')
+			while (!ft_check_invalid(format) &&
+				*format != 's' && *format != 'c')
 			{
 				if (*format == 'l')
 					l += 1;
 				format++;
 			}
-			return (ft_shmatok(ptr, format, l , specs));
+			return (ft_shmatok(ptr, format, l, specs));
 		}
 		format++;
 	}

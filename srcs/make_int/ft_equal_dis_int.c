@@ -14,14 +14,17 @@
 
 static int	ft_siz(long long n)
 {
-	int		m;
+	int					m;
+	unsigned long long	x;
 
 	if (n < 0)
-		n = -n;
+		x = -n;
+	else
+		x = n;
 	m = 1;
-	while (n >= 10)
+	while (x >= 10)
 	{
-		n /= 10;
+		x /= 10;
 		m++;
 	}
 	return (m);
@@ -29,6 +32,10 @@ static int	ft_siz(long long n)
 
 void		ft_equal_dis_int(t_specs *specs, long long n)
 {
+	if (specs->hh == 1)
+		n = (signed char)n;
+	if (specs->h == 1)
+		n = (short)n;
 	if (specs->leftside == 1 || specs->acc_flag == 1)
 		specs->zero = 0;
 	if (n < 0 && specs->plus == 1)

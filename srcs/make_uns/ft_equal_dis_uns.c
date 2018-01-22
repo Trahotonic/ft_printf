@@ -27,6 +27,10 @@ static int	ft_siz(unsigned long long n)
 
 void		ft_equal_dis_uns(t_specs *specs, unsigned long long n)
 {
+	if (specs->hh == 1)
+		n = (unsigned char)n;
+	if (specs->h == 1)
+		n = (unsigned short)n;
 	if (specs->leftside == 1 || specs->acc_flag == 1)
 		specs->zero = 0;
 	specs->accuracy -= ft_siz(n);

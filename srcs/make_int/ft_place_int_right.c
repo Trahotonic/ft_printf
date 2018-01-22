@@ -22,8 +22,7 @@ static void	ft_plusominus1(long long n, t_specs specs, int *ret, char fill)
 		write(1, "-", 1);
 		*ret += 1;
 	}
-	if (n >= 0 && specs.plus == 1 && fill == '0' &&
-		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	if (n >= 0 && specs.plus == 1 && fill == '0')
 	{
 		write(1, "+", 1);
 		*ret += 1;
@@ -40,8 +39,7 @@ static void	ft_plusominus2(long long n, t_specs specs, int *ret, char fill)
 		write(1, "-", 1);
 		*ret += 1;
 	}
-	if (n >= 0 && specs.plus == 1 && fill != '0' &&
-		!(specs.acc_flag == 1 && specs.accuracy == 0 && n == 0))
+	if (n >= 0 && specs.plus == 1 && fill != '0')
 	{
 		write(1, "+", 1);
 		*ret += 1;
