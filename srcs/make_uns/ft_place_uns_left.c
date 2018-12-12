@@ -46,7 +46,7 @@ int			ft_place_uns_left(unsigned long long n, t_specs specs)
 		n = (unsigned short)n;
 	ft_do_magic(specs, &ret, n);
 	count = 0;
-	while (count < specs.width - specs.space)
+	while (count < specs.width)
 	{
 		write(1, " ", 1);
 		count++;

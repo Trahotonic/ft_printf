@@ -17,7 +17,7 @@ static void	ft_place_acc_wid(t_specs specs, char fill, int *ret)
 	int		count;
 
 	count = 0;
-	while (count < specs.width - specs.space)
+	while (count < specs.width)
 	{
 		write(1, &fill, 1);
 		count++;

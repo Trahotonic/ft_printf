@@ -21,15 +21,15 @@ static int			ft_check_valid_sp(char c)
 	return (0);
 }
 
-static char			*ft_do_inval(char *f, int *ret, int *fl, t_specs sp)
+static char			*ft_do_inval(char *f, int *ret, int *fl, t_specs *sp)
 {
 	*fl = 1;
 	if (*f != '\0')
 	{
-		*ret = ft_for_inval_wid(f, sp, *ret);
+		*ret = ft_for_inval_wid(f, *sp, *ret);
 		f++;
 	}
-	sp = ft_peace_maker();
+	*sp = ft_peace_maker();
 	return (f);
 }
 
@@ -44,11 +44,11 @@ static char			*ft_lil_shit(char *format, int *ret, int flag)
 	return (format);
 }
 
-static void			*ft_for_valid(char *f, int *ret, t_specs sp, va_list ptr)
+static void			*ft_for_valid(char *f, int *ret, t_specs *sp, va_list ptr)
 {
-	*ret += ft_pick_func(*f, sp, ptr);
+	*ret += ft_pick_func(*f, *sp, ptr);
 	f++;
-	sp = ft_peace_maker();
+	*sp = ft_peace_maker();
 	return (f);
 }
 
@@ -70,9 +70,9 @@ int					ft_printf(char *format, ...)
 		{
 			format = ft_collect(format + 1, &specs, ptr);
 			if (ft_check_valid_sp(*format))
-				format = ft_for_valid(format, &ret, specs, ptr);
+				format = ft_for_valid(format, &ret, &specs, ptr);
 			else
-				format = ft_do_inval(format, &ret, &specs.flag, specs);
+				format = ft_do_inval(format, &ret, &specs.flag, &specs);
 			if (ft_check_sc(format, &specs, ptr))
 				break ;
 		}
